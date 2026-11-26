@@ -1,1 +1,144 @@
 
+
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#101522">
+<title>ჩვენი პლატფორმა</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#101522;color:#fff;font-family:Arial,sans-serif}
+header{padding:22px 20px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #293044}
+.logo{font-size:23px;font-weight:800;letter-spacing:1px}
+.logo span{color:#e8a1ba}
+nav{display:flex;gap:18px;padding:15px 20px;overflow:auto}
+nav a{color:#aeb6c9;text-decoration:none;white-space:nowrap;font-size:14px}
+main{padding:24px 20px;max-width:850px;margin:auto}
+.hero{padding:35px 0}
+.tag{color:#e8a1ba;font-size:12px;letter-spacing:3px}
+h1{font-size:38px;line-height:1.15;margin:14px 0}
+p{color:#aeb6c9;line-height:1.6}
+.cards{display:grid;grid-template-columns:1fr;gap:14px;margin:25px 0}
+.card{background:#1a2233;border:1px solid #30394d;border-radius:17px;padding:22px}
+.card h2{margin:8px 0;font-size:22px}
+.card .emoji{font-size:28px}
+button{background:#e8a1ba;color:#21131a;border:0;padding:14px 18px;border-radius:10px;font-size:15px;font-weight:bold;cursor:pointer}
+button.secondary{background:#29344a;color:white}
+button.option{background:#202b3e;color:white;border:1px solid #3a465d;text-align:left;width:100%;margin:5px 0}
+button.option.selected{background:#633e52;border-color:#e8a1ba}
+#planner{display:none;background:#1a2233;border-radius:18px;padding:22px;margin-top:25px}
+#answers{margin:15px 0}
+.result{border:1px solid #3a465d;padding:15px;border-radius:12px;margin:12px 0}
+.small{font-size:12px;color:#9ba8bf}
+footer{text-align:center;color:#78849b;padding:35px 15px;font-size:12px}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">EVENT<span>+</span></div>
+  <div class="small">GEORGIA</div>
+</header>
+<nav>
+  <a href="#events">ღონისძიებები</a>
+  <a href="#sports">სპორტი</a>
+  <a href="#date">DATE MODE</a>
+</nav>
+<main>
+<section class="hero">
+  <div class="tag">DISCOVER • EXPERIENCE • ENJOY</div>
+  <h1>შენი შემდეგი<br>გამოცდილება აქ იწყება.</h1>
+  <p>ღონისძიებები, სპორტი და განსაკუთრებული საღამოები — ერთ პლატფორმაზე.</p>
+</section>
+
+<section class="cards">
+  <div class="card" id="events">
+    <div class="emoji">🎟️</div>
+    <h2>EVENTS</h2>
+    <p>იპოვე საინტერესო ღონისძიებები და შეიძინე ბილეთები.</p>
+    <button onclick="alert('ღონისძიებების კატალოგს შემდეგ ეტაპზე შევქმნით')">აღმოაჩინე</button>
+  </div>
+  <div class="card" id="sports">
+    <div class="emoji">⚽</div>
+    <h2>SPORTS</h2>
+    <p>სპორტული მატჩები, შეხვედრები და გულშემატკივართა გამოცდილება.</p>
+    <button class="secondary" onclick="alert('სპორტის სივრცეს შემდეგ ეტაპზე შევქმნით')">სპორტის ნახვა</button>
+  </div>
+  <div class="card" id="date">
+    <div class="emoji">❤️</div>
+    <h2>DATE MODE</h2>
+    <p>AI თავად დაგისვამს შეკითხვებს და დაგიგეგმავს საღამოს.</p>
+    <button onclick="startDate()">დაგეგმე საღამო</button>
+  </div>
+</section>
+
+<section id="planner">
+  <div class="tag">YOUR PERSONAL DATE ASSISTANT</div>
+  <h2 id="question">როგორი ვახშამი გსურთ?</h2>
+  <p id="description">აირჩიეთ თქვენთვის სასურველი მიმართულება.</p>
+  <div id="answers"></div>
+  <button id="next" onclick="nextQuestion()">გაგრძელება →</button>
+  <div id="progress" class="small"></div>
+</section>
+</main>
+<footer>პირველი ვერსია • პროექტი დამუშავების პროცესშია</footer>
+
+<script>
+const questions=[
+ {q:"როგორი ვახშამი გსურთ?",d:"აირჩიეთ სამზარეულოს სტილი.",a:["იტალიური","ფრანგული","ქართული","აზიური","ხმელთაშუაზღვისპირული","გამაკვირვე"]},
+ {q:"როგორი ატმოსფერო გსურთ?",d:"აირჩიეთ საღამოს განწყობა.",a:["რომანტიკული და მშვიდი","ელეგანტური","თანამედროვე და მოდური","ცოცხალი და მხიარული","ტერასა და ღია სივრცე"]},
+ {q:"რა ბიუჯეტი გაქვთ ორისთვის?",d:"მიუთითეთ სასურველი საერთო ბიუჯეტი.",a:["50–100 ₾","100–200 ₾","200–350 ₾","350 ₾-ზე მეტი"]}
+];
+let step=0,selected=[];
+function startDate(){
+ document.getElementById("planner").style.display="block";
+ document.getElementById("planner").scrollIntoView({behavior:"smooth"});
+ step=0;selected=[];render();
+}
+function render(){
+ const q=questions[step];
+ document.getElementById("question").textContent=q.q;
+ document.getElementById("description").textContent=q.d;
+ document.getElementById("progress").textContent="შეკითხვა "+(step+1)+" / "+questions.length;
+ const area=document.getElementById("answers");
+ area.innerHTML="";
+ q.a.forEach(item=>{
+  const b=document.createElement("button");
+  b.className="option"+(selected[step]===item?" selected":"");
+  b.textContent=item;
+  b.onclick=()=>{
+   selected[step]=item;
+   render();
+  };
+  area.appendChild(b);
+ });
+ document.getElementById("next").textContent=step===questions.length-1?"გეგმის ნახვა →":"გაგრძელება →";
+}
+function nextQuestion(){
+ if(!selected[step]){
+  alert("გთხოვთ, აირჩიოთ ერთ-ერთი ვარიანტი.");
+  return;
+ }
+ if(step<questions.length-1){
+  step++;render();
+ }else{
+  showResult();
+ }
+}
+function showResult(){
+ document.getElementById("question").textContent="თქვენი საღამოს საწყისი გეგმა ❤️";
+ document.getElementById("description").textContent="თქვენი არჩევანი:";
+ document.getElementById("answers").innerHTML=`
+ <div class="result">🍝 სამზარეულო: ${selected[0]}</div>
+ <div class="result">🕯️ ატმოსფერო: ${selected[1]}</div>
+ <div class="result">💰 ბიუჯეტი: ${selected[2]}</div>
+ <p class="small">ეს ჯერ დემო ვერსიაა. რეალური რესტორნების ძიება, განრიგი, დაჯავშნა და გადახდა შემდეგ ეტაპებზე დაემატება.</p>`;
+ document.getElementById("next").textContent="თავიდან დაწყება";
+ document.getElementById("next").onclick=startDate;
+ document.getElementById("progress").textContent="დემო დასრულდა";
+}
+render();
+</script>
+</body>
+</html>
