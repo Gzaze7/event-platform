@@ -4,82 +4,76 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#101522">
-<title>EVENT+ | აღმოაჩინე მეტი</title>
+<meta name="theme-color" content="#0d1422">
+<title>EVENT+ | საქართველო</title>
 <style>
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
 body{margin:0;background:#0d1422;color:#fff;font-family:Arial,sans-serif}
 button,input{font:inherit}
 button{cursor:pointer}
-header{padding:18px 6%;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #283247;gap:15px;position:sticky;top:0;background:#0d1422;z-index:5}
-.logo{font-size:27px;font-weight:900;letter-spacing:1px;white-space:nowrap}
-.logo span{color:#e9a2bb}
-.nav{display:flex;gap:20px;flex-wrap:wrap}
-.nav button{background:none;border:0;color:#aab4c8;font-size:14px}
-.nav button:hover{color:#e9a2bb}
-.container{max-width:1100px;margin:auto;padding:30px 22px}
-.hero{padding:55px 0 45px}
+header{padding:18px 6%;display:flex;justify-content:space-between;align-items:center;gap:15px;border-bottom:1px solid #283247;background:#0d1422}
+.logo{font-size:27px;font-weight:900}
+.logo span,.pink{color:#e9a2bb}
+.nav{display:flex;gap:18px;flex-wrap:wrap}
+.nav button,.back{background:none;border:0;color:#aab4c8}
+.container{max-width:1100px;margin:auto;padding:28px 22px}
+.hero{padding:45px 0}
 .eyebrow,.tag{color:#e9a2bb;font-size:11px;letter-spacing:3px;font-weight:bold}
-h1{font-size:clamp(38px,7vw,65px);line-height:1.06;margin:18px 0}
+h1{font-size:clamp(38px,7vw,65px);line-height:1.08}
 p{color:#aab4c8;line-height:1.7}
-.hero p{max-width:600px;font-size:17px}
-.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:25px}
-.primary,.outline{border-radius:10px;padding:15px 20px;font-weight:bold}
-.primary{background:#e9a2bb;color:#20141a;border:0}
-.outline{background:transparent;color:white;border:1px solid #526079}
-.section-title{font-size:26px;margin:55px 0 20px}
-.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:17px}
-.card{background:#182235;border:1px solid #2d3a51;border-radius:17px;padding:24px;min-height:210px;display:flex;flex-direction:column;align-items:flex-start}
+.primary,.outline{padding:14px 19px;border-radius:10px;font-weight:bold}
+.primary{background:#e9a2bb;color:#24151c;border:0}
+.outline{background:transparent;border:1px solid #526079;color:white}
+.actions{display:flex;gap:12px;flex-wrap:wrap}
+.section-title{font-size:26px;margin:45px 0 20px}
+.grid,.events-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:17px}
+.card,.event-card,.panel{background:#182235;border:1px solid #2d3a51;border-radius:17px;overflow:hidden}
+.card{padding:23px;min-height:210px;display:flex;flex-direction:column;align-items:flex-start}
 .card .emoji{font-size:32px}
-.card h3{font-size:24px;margin:15px 0 5px}
-.card p{font-size:14px;margin:5px 0 20px}
+.card h3{font-size:23px}
 .card button{margin-top:auto}
-.event-section{padding-top:35px;scroll-margin-top:85px}
-.event-tools{display:flex;flex-direction:column;gap:16px;margin:20px 0 25px}
-.search{width:100%;padding:16px;border-radius:11px;border:1px solid #35435c;background:#182235;color:white;outline:none}
-.search::placeholder{color:#8995aa}
-.categories{display:flex;gap:9px;overflow-x:auto;padding-bottom:8px}
-.category{white-space:nowrap;border:1px solid #43516a;color:#c1c9d8;background:transparent;border-radius:30px;padding:10px 16px}
-.category.active{background:#e9a2bb;color:#24151c;border-color:#e9a2bb;font-weight:bold}
-.events-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
-.event-card{background:#182235;border:1px solid #2d3a51;border-radius:17px;overflow:hidden}
-.event-art{height:145px;display:flex;align-items:center;justify-content:center;font-size:55px;background:linear-gradient(135deg,#283751,#493047)}
+.event-section{padding-top:30px;scroll-margin-top:20px}
+.search{width:100%;padding:15px;border-radius:10px;border:1px solid #35435c;background:#182235;color:white;margin:15px 0}
+.categories{display:flex;gap:9px;overflow-x:auto;padding-bottom:15px}
+.category{white-space:nowrap;border:1px solid #43516a;color:#c1c9d8;background:transparent;border-radius:25px;padding:10px 15px}
+.category.active{background:#e9a2bb;color:#24151c;border-color:#e9a2bb}
+.event-art{height:155px;display:flex;justify-content:center;align-items:center;font-size:58px;background:linear-gradient(135deg,#283751,#493047)}
 .event-info{padding:18px}
-.event-category{color:#e9a2bb;font-size:11px;letter-spacing:2px;text-transform:uppercase}
-.event-info h3{font-size:20px;margin:10px 0}
-.event-meta{font-size:13px;color:#aab4c8;line-height:1.8}
-.event-bottom{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:16px}
-.price{font-weight:bold;color:#fff}
-.small-btn{border:0;border-radius:8px;background:#e9a2bb;color:#20141a;padding:11px 14px;font-weight:bold}
-.empty{display:none;color:#aab4c8;padding:25px;text-align:center;border:1px dashed #526079;border-radius:12px}
-footer{border-top:1px solid #283247;padding:25px;text-align:center;color:#718099;font-size:12px;margin-top:60px}
-#date{display:none;background:#f7efeb;color:#38232c;min-height:100vh}
-.date-header{background:#351e2b;color:#fff;padding:22px 6%;display:flex;justify-content:space-between;align-items:center}
-.date-logo{font-size:22px;letter-spacing:2px;font-weight:bold}
-.date-logo span{color:#e7a4b7}
-.date-container{max-width:760px;margin:auto;padding:45px 22px}
-.date-container h1{font-size:clamp(36px,7vw,56px);color:#432b36}
+.event-info h3{font-size:20px;margin:9px 0}
+.meta{color:#aab4c8;font-size:13px;line-height:1.9}
+.event-bottom{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:16px}
+.small-btn{background:#e9a2bb;color:#24151c;border:0;border-radius:8px;padding:11px;font-weight:bold}
+.empty{display:none;color:#aab4c8;padding:25px}
+footer{text-align:center;border-top:1px solid #283247;padding:25px;color:#718099;margin-top:50px}
+#date,#event-detail{display:none;min-height:100vh}
+#event-detail{background:#0d1422}
+.detail-hero{height:220px;background:linear-gradient(135deg,#293954,#694052);display:flex;align-items:center;justify-content:center;font-size:85px}
+.detail-content{max-width:850px;margin:auto;padding:25px 22px}
+.detail-content h1{font-size:clamp(32px,6vw,48px);margin:14px 0}
+.detail-meta{display:flex;gap:12px;flex-wrap:wrap;color:#c3cada;margin:20px 0}
+.panel{padding:22px;margin-top:20px}
+.panel h2{margin-top:0}
+.ticket-option{width:100%;padding:16px;margin:8px 0;border:1px solid #43516a;border-radius:11px;background:#111b2c;color:white;text-align:left;display:flex;justify-content:space-between;gap:10px}
+.ticket-option.selected{border:2px solid #e9a2bb;background:#292436}
+.ticket-option span:last-child{color:#e9a2bb;font-weight:bold}
+.notice{font-size:12px;color:#8995aa}
+#date{background:#f7efeb;color:#38232c}
+.date-header{background:#351e2b;color:white;padding:22px 6%;display:flex;justify-content:space-between}
+.date-container{max-width:760px;margin:auto;padding:40px 22px}
+.date-container h1{color:#432b36}
 .date-container p{color:#806b73}
-.date-panel{background:#fff;border:1px solid #eadbdc;border-radius:18px;padding:23px;margin-top:26px}
-.date-panel h2{font-size:23px;color:#432b36}
-.date-option{display:block;width:100%;text-align:left;padding:16px;margin:9px 0;border-radius:11px;background:#fff;border:1px solid #e5d8d9;color:#513b44}
+.date-panel{background:white;border:1px solid #eadbdc;border-radius:18px;padding:23px;margin-top:25px}
+.date-panel h2{color:#432b36}
+.date-option{display:block;width:100%;padding:15px;margin:9px 0;border:1px solid #e5d8d9;border-radius:10px;background:white;color:#513b44;text-align:left}
 .date-option.selected{background:#f4e4e9;border:2px solid #a65f78}
-.date-next{width:100%;margin-top:15px;padding:15px;border:0;border-radius:10px;background:#713e55;color:#fff;font-weight:bold}
-.back{border:0;background:none;color:inherit;font-weight:bold}
-.date-small{font-size:12px;color:#9a858d}
-#details{display:none;position:fixed;inset:0;background:#000b;z-index:10;padding:20px;align-items:center;justify-content:center}
-.detail-box{background:#182235;border:1px solid #43516a;border-radius:18px;padding:25px;max-width:430px;width:100%}
-.detail-box h2{margin-top:5px}
+.date-next{width:100%;padding:15px;margin-top:15px;border:0;border-radius:10px;background:#713e55;color:white;font-weight:bold}
 @media(max-width:650px){
- header{padding:16px 5%;align-items:flex-start;flex-direction:column}
- .nav{gap:17px}
+ header{align-items:flex-start;flex-direction:column}
+ .nav{gap:15px}
  .nav button{font-size:13px;padding:3px 0}
  .container{padding:20px}
- .hero{padding-top:35px}
  .grid,.events-grid{grid-template-columns:1fr}
- .section-title{font-size:23px}
- .event-art{height:165px}
+ .hero{padding-top:30px}
 }
 </style>
 </head>
@@ -89,7 +83,7 @@ footer{border-top:1px solid #283247;padding:25px;text-align:center;color:#718099
 <header>
  <div class="logo">EVENT<span>+</span></div>
  <nav class="nav">
-  <button onclick="goTop()">მთავარი</button>
+  <button onclick="showHome()">მთავარი</button>
   <button onclick="goEvents()">Events</button>
   <button onclick="goSports()">Sports</button>
   <button onclick="showDate()">Date Mode</button>
@@ -99,7 +93,7 @@ footer{border-top:1px solid #283247;padding:25px;text-align:center;color:#718099
 <main class="container">
  <section class="hero">
   <div class="eyebrow">DISCOVER • EXPERIENCE • ENJOY</div>
-  <h1>აღმოაჩინე.<br>განიცადე.<br><span style="color:#e9a2bb">ისიამოვნე.</span></h1>
+  <h1>აღმოაჩინე.<br>განიცადე.<br><span class="pink">ისიამოვნე.</span></h1>
   <p>ღონისძიებები, სპორტი და განსაკუთრებული გამოცდილებები — ყველაფერი ერთ სივრცეში.</p>
   <div class="actions">
    <button class="primary" onclick="goEvents()">აღმოაჩინე ღონისძიებები →</button>
@@ -110,15 +104,13 @@ footer{border-top:1px solid #283247;padding:25px;text-align:center;color:#718099
  <h2 class="section-title">აირჩიე შენი გამოცდილება</h2>
  <section class="grid">
   <article class="card">
-   <div class="emoji">🎟️</div>
-   <div class="tag">LIVE EXPERIENCES</div>
+   <div class="emoji">🎟️</div><div class="tag">LIVE EXPERIENCES</div>
    <h3>EVENTS</h3>
    <p>კონცერტები, ფესტივალები, თეატრი და სხვა ღონისძიებები.</p>
    <button class="outline" onclick="goEvents()">ღონისძიებების ნახვა →</button>
   </article>
-  <article class="card" id="sports">
-   <div class="emoji">🏆</div>
-   <div class="tag">FEEL THE GAME</div>
+  <article class="card">
+   <div class="emoji">🏆</div><div class="tag">FEEL THE GAME</div>
    <h3>SPORTS</h3>
    <p>სპორტული მატჩები, გუნდები და გულშემატკივრის გამოცდილება.</p>
    <button class="outline" onclick="goSports()">სპორტის ნახვა →</button>
@@ -128,30 +120,49 @@ footer{border-top:1px solid #283247;padding:25px;text-align:center;color:#718099
  <section class="event-section" id="event-catalog">
   <div class="eyebrow">FIND YOUR NEXT EXPERIENCE</div>
   <h2 class="section-title">აღმოაჩინე ღონისძიებები</h2>
-  <p>იპოვე შენი შემდეგი დაუვიწყარი გამოცდილება.</p>
-
-  <div class="event-tools">
-   <input class="search" id="search" placeholder="🔍 მოძებნე ღონისძიება..." oninput="filterEvents()">
-   <div class="categories">
-    <button class="category active" onclick="setCategory('ყველა',this)">ყველა</button>
-    <button class="category" onclick="setCategory('კონცერტი',this)">კონცერტები</button>
-    <button class="category" onclick="setCategory('ფესტივალი',this)">ფესტივალები</button>
-    <button class="category" onclick="setCategory('კლუბი',this)">კლუბი</button>
-    <button class="category" onclick="setCategory('თეატრი',this)">თეატრი</button>
-    <button class="category" onclick="setCategory('სპორტი',this)">სპორტი</button>
-   </div>
+  <input class="search" id="search" placeholder="🔍 მოძებნე ღონისძიება..." oninput="renderEvents()">
+  <div class="categories">
+   <button class="category active" onclick="setCategory('ყველა',this)">ყველა</button>
+   <button class="category" onclick="setCategory('კონცერტი',this)">კონცერტები</button>
+   <button class="category" onclick="setCategory('ფესტივალი',this)">ფესტივალები</button>
+   <button class="category" onclick="setCategory('კლუბი',this)">კლუბი</button>
+   <button class="category" onclick="setCategory('თეატრი',this)">თეატრი</button>
+   <button class="category" onclick="setCategory('სპორტი',this)">სპორტი</button>
   </div>
-
   <div class="events-grid" id="events-grid"></div>
-  <div class="empty" id="empty">ამ ძიებით ღონისძიება ვერ მოიძებნა.</div>
+  <div class="empty" id="empty">ღონისძიება ვერ მოიძებნა.</div>
  </section>
 </main>
-<footer>EVENT+ · GEORGIA · პირველი დემო ვერსია</footer>
+<footer>EVENT+ · GEORGIA · DEMO VERSION</footer>
+</div>
+
+<div id="event-detail">
+ <header>
+  <div class="logo">EVENT<span>+</span></div>
+  <button class="back" onclick="backToEvents()">← ღონისძიებებზე დაბრუნება</button>
+ </header>
+ <div class="detail-hero" id="detail-emoji">🎤</div>
+ <main class="detail-content">
+  <div class="tag" id="detail-category"></div>
+  <h1 id="detail-title"></h1>
+  <div class="detail-meta">
+   <span id="detail-date"></span>
+   <span id="detail-place"></span>
+  </div>
+  <p id="detail-description"></p>
+  <section class="panel">
+   <h2>აირჩიე ბილეთი</h2>
+   <p>აირჩიე შენთვის სასურველი ბილეთის ტიპი.</p>
+   <div id="ticket-options"></div>
+   <button class="primary" style="width:100%;margin-top:12px" onclick="demoCheckout()">გაგრძელება →</button>
+   <p class="notice">ეს სატესტო შეკვეთაა. გადახდა და ბილეთის გაცემა ჯერ ჩართული არ არის.</p>
+  </section>
+ </main>
 </div>
 
 <div id="date">
  <div class="date-header">
-  <div class="date-logo">DATE <span>MODE</span></div>
+  <div class="logo">DATE <span class="pink">MODE</span></div>
   <button class="back" onclick="showHome()">← მთავარი</button>
  </div>
  <main class="date-container">
@@ -159,60 +170,51 @@ footer{border-top:1px solid #283247;padding:25px;text-align:center;color:#718099
   <h1>Let's make<br>it special.</h1>
   <p>მოდი, ერთად შევქმნათ საღამო, რომელიც დაგამახსოვრდებათ.</p>
   <section class="date-panel">
-   <div class="date-small" id="progress">QUESTION 1 / 3</div>
-   <h2 id="question">როგორი ვახშამი გსურთ?</h2>
-   <p id="description">აირჩიეთ სასურველი სამზარეულო.</p>
+   <div class="notice" id="progress">QUESTION 1 / 3</div>
+   <h2 id="question"></h2>
+   <p id="description"></p>
    <div id="answers"></div>
    <button class="date-next" id="next" onclick="nextQuestion()">გაგრძელება →</button>
   </section>
  </main>
 </div>
 
-<div id="details" onclick="closeDetails(event)">
- <div class="detail-box">
-  <div class="tag" id="detail-category"></div>
-  <h2 id="detail-title"></h2>
-  <p id="detail-meta"></p>
-  <p id="detail-description"></p>
-  <button class="primary" onclick="alert('ეს სატესტო ღილაკია. ბილეთების გაყიდვა ჯერ არ არის ჩართული.')">ბილეთის არჩევა →</button>
-  <button class="outline" style="margin-top:10px" onclick="document.getElementById('details').style.display='none'">დახურვა</button>
- </div>
-</div>
-
 <script>
 const events=[
- {title:"თბილისის მუსიკალური საღამო",category:"კონცერტი",date:"თარიღი დაზუსტდება",place:"თბილისი",price:"ფასი დაზუსტდება",emoji:"🎤",desc:"მუსიკა, ცოცხალი შესრულება და დაუვიწყარი საღამო. ეს არის სატესტო ღონისძიება."},
- {title:"ზაფხულის ფესტივალი",category:"ფესტივალი",date:"თარიღი დაზუსტდება",place:"თბილისი",price:"ფასი დაზუსტდება",emoji:"🎪",desc:"ფესტივალის დემო ბარათი. რეალური პროგრამა და ბილეთები ჯერ არ არის დამატებული."},
- {title:"ელექტრონული მუსიკის ღამე",category:"კლუბი",date:"თარიღი დაზუსტდება",place:"თბილისი",price:"ფასი დაზუსტდება",emoji:"🎧",desc:"კლუბური საღამოს სატესტო ჩანაწერი."},
- {title:"თეატრალური წარმოდგენა",category:"თეატრი",date:"თარიღი დაზუსტდება",place:"თბილისი",price:"ფასი დაზუსტდება",emoji:"🎭",desc:"თეატრის კატეგორიის დემო ღონისძიება."},
- {title:"ფეხბურთის მატჩი",category:"სპორტი",date:"თარიღი დაზუსტდება",place:"საქართველო",price:"ფასი დაზუსტდება",emoji:"⚽",desc:"სპორტული ღონისძიების სატესტო ჩანაწერი."},
- {title:"ცოცხალი ჯაზის საღამო",category:"კონცერტი",date:"თარიღი დაზუსტდება",place:"თბილისი",price:"ფასი დაზუსტდება",emoji:"🎷",desc:"ჯაზის საღამოს სატესტო ჩანაწერი."}
+ {id:1,title:"თბილისის მუსიკალური საღამო",category:"კონცერტი",date:"თარიღი დაზუსტდება",place:"თბილისი",emoji:"🎤",desc:"ცოცხალი მუსიკა და დაუვიწყარი საღამო. ეს არის სატესტო ღონისძიება.",tickets:[{name:"Standard",price:35},{name:"VIP",price:80}]},
+ {id:2,title:"ზაფხულის ფესტივალი",category:"ფესტივალი",date:"თარიღი დაზუსტდება",place:"თბილისი",emoji:"🎪",desc:"ფესტივალის სატესტო ღონისძიება. რეალური პროგრამა ჯერ არ არის დამატებული.",tickets:[{name:"Standard",price:50},{name:"VIP",price:120}]},
+ {id:3,title:"ელექტრონული მუსიკის ღამე",category:"კლუბი",date:"თარიღი დაზუსტდება",place:"თბილისი",emoji:"🎧",desc:"კლუბური საღამოს დემო ჩანაწერი.",tickets:[{name:"Entry",price:25},{name:"VIP",price:70}]},
+ {id:4,title:"თეატრალური წარმოდგენა",category:"თეატრი",date:"თარიღი დაზუსტდება",place:"თბილისი",emoji:"🎭",desc:"თეატრის კატეგორიის სატესტო ღონისძიება.",tickets:[{name:"Standard",price:30},{name:"Premium",price:60}]},
+ {id:5,title:"ფეხბურთის მატჩი",category:"სპორტი",date:"თარიღი დაზუსტდება",place:"საქართველო",emoji:"⚽",desc:"სპორტული ღონისძიების დემო ჩანაწერი.",tickets:[{name:"Standard",price:20},{name:"VIP",price:100}]},
+ {id:6,title:"ცოცხალი ჯაზის საღამო",category:"კონცერტი",date:"თარიღი დაზუსტდება",place:"თბილისი",emoji:"🎷",desc:"ჯაზის საღამოს სატესტო ჩანაწერი.",tickets:[{name:"Standard",price:40},{name:"VIP",price:90}]}
 ];
 let activeCategory="ყველა";
+let currentEvent=null;
+let selectedTicket=null;
 
 function renderEvents(){
- const grid=document.getElementById("events-grid");
  const term=document.getElementById("search").value.toLowerCase();
  const filtered=events.filter(e=>
   (activeCategory==="ყველა"||e.category===activeCategory)&&
   (e.title.toLowerCase().includes(term)||e.place.toLowerCase().includes(term))
  );
+ const grid=document.getElementById("events-grid");
  grid.innerHTML="";
- filtered.forEach((e)=>{
+ filtered.forEach(e=>{
   const card=document.createElement("article");
   card.className="event-card";
   card.innerHTML=`
    <div class="event-art">${e.emoji}</div>
    <div class="event-info">
-    <div class="event-category">${e.category}</div>
+    <div class="tag">${e.category}</div>
     <h3>${e.title}</h3>
-    <div class="event-meta">📅 ${e.date}<br>📍 ${e.place}</div>
+    <div class="meta">📅 ${e.date}<br>📍 ${e.place}</div>
     <div class="event-bottom">
-     <span class="price">${e.price}</span>
-     <button class="small-btn">დეტალები →</button>
+     <span>დეტალები</span>
+     <button class="small-btn">ნახვა →</button>
     </div>
    </div>`;
-  card.querySelector("button").onclick=()=>openDetails(e);
+  card.querySelector("button").onclick=()=>openEvent(e.id);
   grid.appendChild(card);
  });
  document.getElementById("empty").style.display=filtered.length?"none":"block";
@@ -223,30 +225,53 @@ function setCategory(category,button){
  button.classList.add("active");
  renderEvents();
 }
-function filterEvents(){renderEvents()}
-function openDetails(e){
- document.getElementById("detail-category").textContent=e.category;
- document.getElementById("detail-title").textContent=e.title;
- document.getElementById("detail-meta").textContent="📅 "+e.date+"  ·  📍 "+e.place;
- document.getElementById("detail-description").textContent=e.desc;
- document.getElementById("details").style.display="flex";
+function goEvents(){
+ showHome();
+ setTimeout(()=>document.getElementById("event-catalog").scrollIntoView({behavior:"smooth"}),100);
 }
-function closeDetails(event){
- if(event.target.id==="details")event.currentTarget.style.display="none";
-}
-function goTop(){window.scrollTo({top:0,behavior:"smooth"})}
-function goEvents(){document.getElementById("event-catalog").scrollIntoView({behavior:"smooth"})}
-function goSports(){alert("SPORTS განყოფილება შემდეგ ეტაპზე შეიქმნება.")}
+function goSports(){alert("SPORTS განყოფილება შემდეგ ეტაპზე დაემატება.")}
 function showHome(){
  document.getElementById("home").style.display="block";
  document.getElementById("date").style.display="none";
+ document.getElementById("event-detail").style.display="none";
  window.scrollTo(0,0);
 }
-function showDate(){
+function openEvent(id){
+ currentEvent=events.find(e=>e.id===id);
+ selectedTicket=null;
  document.getElementById("home").style.display="none";
- document.getElementById("date").style.display="block";
- step=0;answers=[];renderDate();
+ document.getElementById("date").style.display="none";
+ document.getElementById("event-detail").style.display="block";
+ document.getElementById("detail-emoji").textContent=currentEvent.emoji;
+ document.getElementById("detail-category").textContent=currentEvent.category;
+ document.getElementById("detail-title").textContent=currentEvent.title;
+ document.getElementById("detail-date").textContent="📅 "+currentEvent.date;
+ document.getElementById("detail-place").textContent="📍 "+currentEvent.place;
+ document.getElementById("detail-description").textContent=currentEvent.desc;
+ const area=document.getElementById("ticket-options");
+ area.innerHTML="";
+ currentEvent.tickets.forEach((ticket,index)=>{
+  const b=document.createElement("button");
+  b.className="ticket-option";
+  b.innerHTML="<span>"+ticket.name+"</span><span>"+ticket.price+" ₾</span>";
+  b.onclick=()=>{
+   selectedTicket=index;
+   area.querySelectorAll("button").forEach(x=>x.classList.remove("selected"));
+   b.classList.add("selected");
+  };
+  area.appendChild(b);
+ });
  window.scrollTo(0,0);
+}
+function backToEvents(){
+ document.getElementById("event-detail").style.display="none";
+ document.getElementById("home").style.display="block";
+ setTimeout(()=>document.getElementById("event-catalog").scrollIntoView({behavior:"smooth"}),100);
+}
+function demoCheckout(){
+ if(selectedTicket===null){alert("გთხოვთ, აირჩიოთ ბილეთის ტიპი.");return}
+ const t=currentEvent.tickets[selectedTicket];
+ alert("სატესტო არჩევანი:\\n"+currentEvent.title+"\\n"+t.name+" — "+t.price+" ₾\\n\\nგადახდის სისტემა შემდეგ ეტაპზე დაემატება.");
 }
 
 const questions=[
@@ -255,31 +280,33 @@ const questions=[
  {q:"რა ბიუჯეტი გაქვთ ორისთვის?",d:"აირჩიეთ საერთო ბიუჯეტი.",a:["50–100 ₾","100–200 ₾","200–350 ₾","350 ₾-ზე მეტი"]}
 ];
 let step=0,answers=[];
+function showDate(){
+ document.getElementById("home").style.display="none";
+ document.getElementById("event-detail").style.display="none";
+ document.getElementById("date").style.display="block";
+ step=0;answers=[];renderDate();window.scrollTo(0,0);
+}
 function renderDate(){
- let q=questions[step];
+ const q=questions[step];
  document.getElementById("question").textContent=q.q;
  document.getElementById("description").textContent=q.d;
- document.getElementById("progress").textContent="QUESTION "+(step+1)+" / "+questions.length;
- let area=document.getElementById("answers");
- area.innerHTML="";
+ document.getElementById("progress").textContent="QUESTION "+(step+1)+" / 3";
+ const area=document.getElementById("answers");area.innerHTML="";
  q.a.forEach(item=>{
-  let b=document.createElement("button");
+  const b=document.createElement("button");
   b.className="date-option"+(answers[step]===item?" selected":"");
   b.textContent=item;
   b.onclick=()=>{answers[step]=item;renderDate()};
   area.appendChild(b);
  });
- document.getElementById("next").textContent=step===questions.length-1?"ჩემი არჩევანის ნახვა →":"გაგრძელება →";
- document.getElementById("next").onclick=nextQuestion;
+ document.getElementById("next").textContent=step===2?"ჩემი არჩევანის ნახვა →":"გაგრძელება →";
 }
 function nextQuestion(){
  if(!answers[step]){alert("გთხოვთ, აირჩიოთ პასუხი.");return}
- if(step<questions.length-1){step++;renderDate();return}
+ if(step<2){step++;renderDate();return}
  document.getElementById("question").textContent="თქვენი საღამოს არჩევანი ❤️";
  document.getElementById("description").textContent="თქვენი პასუხების შეჯამება:";
- document.getElementById("answers").innerHTML=
-  answers.map((a,i)=>'<div class="date-option">'+questions[i].q+'<br><b>'+a+'</b></div>').join("")+
-  '<p class="date-small">ეს დემო ვერსიაა. რეალური ადგილები, დაჯავშნა და გადახდა ჯერ არ არის ჩართული.</p>';
+ document.getElementById("answers").innerHTML=answers.map((a,i)=>'<div class="date-option">'+questions[i].q+'<br><b>'+a+'</b></div>').join("")+'<p class="notice">ეს დემო ვერსიაა. რეალური ადგილები და დაჯავშნა ჯერ არ არის ჩართული.</p>';
  document.getElementById("progress").textContent="YOUR DATE PLAN";
  document.getElementById("next").textContent="თავიდან დაწყება";
  document.getElementById("next").onclick=showDate;
