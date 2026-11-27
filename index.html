@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#0d1422">
-<title>EVENT+ | შენი გამოცდილებები</title>
+<title>EVENT+ | საქართველო</title>
 <style>
 *{box-sizing:border-box}
 :root{--pink:#e9a2bb;--bg:#0d1422;--card:#172235;--muted:#a4afc0}
@@ -14,36 +14,33 @@ button,input,textarea,select{font:inherit}
 button{cursor:pointer}
 header{position:sticky;top:0;z-index:20;background:#0d1422f5;border-bottom:1px solid #27344a;padding:15px}
 .header-inner{max-width:1100px;margin:auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px}
-.logo{font-size:25px;font-weight:900;color:white}
-.logo span{color:var(--pink)}
+.logo{font-size:25px;font-weight:900}.logo span{color:var(--pink)}
 nav{display:flex;flex-wrap:wrap;gap:7px}
 nav button{border:0;background:#1c293c;color:white;padding:10px 12px;border-radius:10px}
 nav button:hover{background:#33445e}
 .container{max-width:1100px;margin:auto;padding:20px}
-.page{display:none}
-.page.active{display:block}
-.hero{padding:45px 25px;border-radius:22px;background:linear-gradient(135deg,#1c293c,#42263b);margin-bottom:25px}
-.hero h1{font-size:clamp(30px,6vw,55px);margin:0 0 15px}
-.hero p{color:#d4d9e2;font-size:17px}
+.page{display:none}.page.active{display:block}
+.hero{padding:40px 25px;border-radius:22px;background:linear-gradient(135deg,#1c293c,#42263b);margin-bottom:25px}
+.hero h1{font-size:clamp(30px,6vw,52px);margin:0 0 15px}
+.hero p,.muted{color:var(--muted)}
 .primary{border:0;background:var(--pink);color:#172033;font-weight:bold;padding:13px 18px;border-radius:12px}
-.secondary{border:1px solid #536078;background:#202d42;color:white;padding:12px 16px;border-radius:10px}
-.danger{border:1px solid #9d5365;background:#492535;color:#fff;padding:10px 14px;border-radius:10px}
+.secondary{border:1px solid #536078;background:#202d42;color:white;padding:11px 14px;border-radius:10px}
+.danger{border:1px solid #9d5365;background:#492535;color:white;padding:10px 14px;border-radius:10px}
 .section-title{margin:28px 0 15px;font-size:25px}
-.filters{display:flex;gap:8px;flex-wrap:wrap;margin:15px 0}
-.filters button{background:#1b293c;color:white;border:1px solid #33445c;padding:10px 13px;border-radius:20px}
-.filters button.selected{background:var(--pink);color:#172033}
 .search,.field{width:100%;background:#172235;border:1px solid #35445b;color:white;border-radius:12px;padding:13px;margin:8px 0}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
 .card{background:var(--card);border:1px solid #27364c;border-radius:17px;overflow:hidden}
 .event-image{min-height:145px;display:flex;align-items:center;justify-content:center;font-size:65px;background:linear-gradient(135deg,#26364c,#493044)}
-.card-body{padding:16px}
-.card h3{margin:5px 0 12px}
-.muted{color:var(--muted)}
-.price{color:var(--pink);font-weight:bold}
+.card-body{padding:16px}.card h3{margin:5px 0 12px}
 .card button{width:100%;margin-top:12px}
+.price{color:var(--pink);font-weight:bold}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin:15px 0}
+.filters button{background:#1b293c;color:white;border:1px solid #33445c;padding:10px 13px;border-radius:20px}
+.filters button.selected{background:var(--pink);color:#172033}
 .detail-box{background:var(--card);border:1px solid #2b3a51;padding:20px;border-radius:17px;margin-top:15px}
 .ticket-option{display:flex;justify-content:space-between;gap:10px;align-items:center;background:#202d42;padding:13px;border-radius:12px;margin:10px 0}
-input[type=number]{width:75px;background:#111a29;color:white;border:1px solid #526078;padding:9px;border-radius:8px}
+.ticket-option input[type=number]{width:85px}
+input[type=number]{background:#111a29;color:white;border:1px solid #526078;padding:9px;border-radius:8px}
 .total{font-size:22px;font-weight:bold;margin:15px 0;color:var(--pink)}
 .empty{padding:25px;background:#172235;border-radius:15px;color:#b5c0ce;text-align:center}
 .warning{color:#f2c7d6;background:#382535;padding:12px;border-radius:10px;font-size:13px;line-height:1.5}
@@ -56,23 +53,21 @@ input[type=number]{width:75px;background:#111a29;color:white;border:1px solid #5
 .date-page h1,.date-page h2{color:#512638}
 .date-page button{background:#5b283b;color:white;border:0;padding:12px 15px;border-radius:10px;margin:5px}
 .date-page .date-option{background:white;color:#512638;border:1px solid #ddc6c9;padding:14px;border-radius:12px;display:block;width:100%;text-align:left;margin:10px 0}
-.date-page .date-option.selected{background:#e9c7d1;border:2px solid #6b2d43}
-.date-result{background:#fff;padding:18px;border-radius:15px;margin-top:15px}
+.date-result{background:white;padding:18px;border-radius:15px;margin-top:15px}
 .admin-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:18px 0}
 .stat{background:#202d42;padding:17px;border-radius:13px;border:1px solid #34445b}
 .stat strong{display:block;color:var(--pink);font-size:25px;margin-top:7px}
 .admin-form{background:#172235;border:1px solid #2c3b52;padding:20px;border-radius:16px;margin:18px 0}
 .admin-form label{display:block;margin-top:12px;color:#c6cfdb}
-.ticket-editor{display:grid;grid-template-columns:1fr 110px;gap:10px;align-items:center}
+.ticket-editor{display:grid;grid-template-columns:1fr 100px 90px;gap:8px;align-items:center}
+.stock{font-size:13px;color:#b8c4d4}
+.out{color:#ff8da3}
 footer{border-top:1px solid #26344a;text-align:center;padding:25px;color:#8693a7;margin-top:40px}
 @media(max-width:650px){
- header{padding:10px}
- .header-inner{justify-content:center}
- nav{justify-content:center}
- nav button{padding:9px;font-size:12px}
- .container{padding:13px}
- .hero{padding:30px 18px}
- .ticket-option{flex-wrap:wrap}
+ header{padding:10px}.header-inner{justify-content:center}
+ nav{justify-content:center}nav button{padding:9px;font-size:12px}
+ .container{padding:13px}.hero{padding:30px 18px}
+ .ticket-option{flex-wrap:wrap}.ticket-editor{grid-template-columns:1fr 85px}
 }
 </style>
 </head>
@@ -107,7 +102,6 @@ footer{border-top:1px solid #26344a;text-align:center;padding:25px;color:#8693a7
 
 <section id="events-page" class="page">
   <h1>ღონისძიებები</h1>
-  <p class="muted">აღმოაჩინე შენთვის საინტერესო ღონისძიებები.</p>
   <input id="search-input" class="search" placeholder="🔎 მოძებნე ღონისძიება..." oninput="renderEvents()">
   <div class="filters">
     <button class="selected" onclick="setCategory('ყველა',this)">ყველა</button>
@@ -121,10 +115,7 @@ footer{border-top:1px solid #26344a;text-align:center;padding:25px;color:#8693a7
 </section>
 
 <section id="sports-page" class="page">
-  <div class="hero">
-    <h1>სპორტი ⚽</h1>
-    <p>სპორტული ღონისძიებები და მატჩები ერთ სივრცეში.</p>
-  </div>
+  <div class="hero"><h1>სპორტი ⚽</h1><p>სპორტული ღონისძიებები და მატჩები ერთ სივრცეში.</p></div>
   <div id="sports-list" class="grid"></div>
 </section>
 
@@ -134,10 +125,7 @@ footer{border-top:1px solid #26344a;text-align:center;padding:25px;color:#8693a7
 </section>
 
 <section id="order-confirmation-page" class="page">
-  <div class="hero">
-    <h1>✅ შეკვეთა შეიქმნა!</h1>
-    <p>ეს არის დემო შეკვეთა. რეალური გადახდა არ განხორციელებულა.</p>
-  </div>
+  <div class="hero"><h1>✅ შეკვეთა შეიქმნა!</h1><p>ეს არის დემო შეკვეთა. რეალური გადახდა არ განხორციელებულა.</p></div>
   <div id="confirmation-content" class="detail-box"></div>
   <button class="primary" onclick="showMyTickets()">ჩემი ბილეთების ნახვა</button>
   <button class="secondary" onclick="goEvents()">ღონისძიებებზე დაბრუნება</button>
@@ -145,601 +133,341 @@ footer{border-top:1px solid #26344a;text-align:center;padding:25px;color:#8693a7
 
 <section id="my-tickets-page" class="page">
   <h1>🎟️ ჩემი ბილეთები</h1>
-  <p class="muted">აქ გამოჩნდება ამ ბრაუზერში შენახული დემო შეკვეთები.</p>
   <div id="tickets-list"></div>
 </section>
 
 <section id="account-page" class="page">
-  <h1>👤 ანგარიში</h1>
-  <div id="account-content"></div>
+  <h1>👤 ანგარიში</h1><div id="account-content"></div>
 </section>
 
 <section id="date-page" class="page">
-  <div class="date-page">
-    <h1>DATE MODE 💗</h1>
-    <p>შეარჩიე იდეალური პაემანი შენი განწყობის მიხედვით.</p>
-    <div id="date-content"></div>
-  </div>
+  <div class="date-page"><h1>DATE MODE 💗</h1><p>შეარჩიე იდეალური პაემანი.</p><div id="date-content"></div></div>
 </section>
 
 <section id="admin-page" class="page">
-  <div class="hero">
-    <h1>⚙️ EVENT+ მართვა</h1>
-    <p>შენი ადმინისტრატორის სამუშაო სივრცე — დაამატე და მართე ღონისძიებები.</p>
-  </div>
-  <div class="warning">
-    ეს არის საწყისი დემო ადმინისტრატორის პანელი. GitHub Pages-ზე ის საჯაროდ ხელმისაწვდომია და დაცული ადმინისტრატორის ავტორიზაცია ჯერ არ აქვს. არ შეიყვანო პირადი ან საიდუმლო მონაცემები.
-  </div>
+  <div class="hero"><h1>⚙️ EVENT+ მართვა</h1><p>მართე ღონისძიებები და ბილეთების მარაგი.</p></div>
+  <div class="warning">ეს არის დემო ადმინისტრატორის პანელი. GitHub Pages-ზე ის საჯაროდ ხელმისაწვდომია და დაცული ადმინისტრატორის ავტორიზაცია ჯერ არ აქვს.</div>
   <div id="admin-content"></div>
 </section>
 
 </main>
-
 <footer>EVENT+ · დემო პლატფორმა · © 2026</footer>
 
 <script>
 const defaultEvents=[
-{id:1,title:"თბილისის მუსიკალური საღამო",category:"კონცერტი",date:"თარიღი დაზუსტდება",place:"თბილისი",emoji:"🎤",desc:"ცოცხალი მუსიკა და დაუვიწყარი საღამო. ეს არის სატესტო ღონისძიება.",tickets:[{name:"Standard",price:35},{name:"VIP",price:80}]},
-{id:2,title:"ზაფხულის ფესტივალი",category:"ფესტივალი",date:"თარიღი დაზუსტდება",place:"თბილისი",emoji:"🎪",desc:"ფესტივალის სატესტო ღონისძიება.",tickets:[{name:"Standard",price:50},{name:"VIP",price:120}]},
-{id:3,title:"ელექტრონული მუსიკის ღამე",category:"კლუბი",date:"თარიღი დაზუსტდება",place:"თბილისი",emoji:"🎧",desc:"კლუბური საღამოს დემო ჩანაწერი.",tickets:[{name:"Entry",price:25},{name:"VIP",price:70}]},
-{id:4,title:"თეატრალური წარმოდგენა",category:"თეატრი",date:"თარიღი დაზუსტდება",place:"თბილისი",emoji:"🎭",desc:"თეატრის სატესტო ღონისძიება.",tickets:[{name:"Standard",price:30},{name:"Premium",price:60}]},
-{id:5,title:"ფეხბურთის მატჩი",category:"სპორტი",date:"თარიღი დაზუსტდება",place:"საქართველო",emoji:"⚽",desc:"სპორტული ღონისძიების დემო ჩანაწერი.",tickets:[{name:"Standard",price:20},{name:"VIP",price:100}]},
-{id:6,title:"ცოცხალი ჯაზის საღამო",category:"კონცერტი",date:"თარიღი დაზუსტდება",place:"თბილისი",emoji:"🎷",desc:"ჯაზის საღამოს სატესტო ჩანაწერი.",tickets:[{name:"Standard",price:40},{name:"VIP",price:90}]}
+{id:1,title:"თბილისის მუსიკალური საღამო",category:"კონცერტი",date:"თარიღი დაზუსტდება",place:"თბილისი",emoji:"🎤",desc:"ცოცხალი მუსიკა და დაუვიწყარი საღამო. სატესტო ღონისძიება.",tickets:[{name:"Standard",price:35,stock:100},{name:"VIP",price:80,stock:30}]},
+{id:2,title:"ზაფხულის ფესტივალი",category:"ფესტივალი",date:"თარიღი დაზუსტდება",place:"თბილისი",emoji:"🎪",desc:"ფესტივალის სატესტო ღონისძიება.",tickets:[{name:"Standard",price:50,stock:150},{name:"VIP",price:120,stock:40}]},
+{id:3,title:"ელექტრონული მუსიკის ღამე",category:"კლუბი",date:"თარიღი დაზუსტდება",place:"თბილისი",emoji:"🎧",desc:"კლუბური საღამოს დემო ჩანაწერი.",tickets:[{name:"Entry",price:25,stock:100},{name:"VIP",price:70,stock:25}]},
+{id:4,title:"თეატრალური წარმოდგენა",category:"თეატრი",date:"თარიღი დაზუსტდება",place:"თბილისი",emoji:"🎭",desc:"თეატრის სატესტო ღონისძიება.",tickets:[{name:"Standard",price:30,stock:80},{name:"Premium",price:60,stock:20}]},
+{id:5,title:"ფეხბურთის მატჩი",category:"სპორტი",date:"თარიღი დაზუსტდება",place:"საქართველო",emoji:"⚽",desc:"სპორტული ღონისძიების დემო ჩანაწერი.",tickets:[{name:"Standard",price:20,stock:500},{name:"VIP",price:100,stock:50}]},
+{id:6,title:"ცოცხალი ჯაზის საღამო",category:"კონცერტი",date:"თარიღი დაზუსტდება",place:"თბილისი",emoji:"🎷",desc:"ჯაზის საღამოს სატესტო ჩანაწერი.",tickets:[{name:"Standard",price:40,stock:60},{name:"VIP",price:90,stock:15}]}
 ];
 
 function loadEvents(){
   try{
     const saved=JSON.parse(localStorage.getItem("eventPlusEvents"));
-    return Array.isArray(saved)&&saved.length?saved:defaultEvents;
+    const source=Array.isArray(saved)&&saved.length?saved:defaultEvents;
+    return source.map(e=>({...e,tickets:(e.tickets||[]).map(t=>({
+      ...t,stock:Number.isInteger(Number(t.stock))?Math.max(0,Number(t.stock)):100
+    }))}));
   }catch(e){return defaultEvents}
 }
-
 let events=loadEvents();
 function saveEvents(){localStorage.setItem("eventPlusEvents",JSON.stringify(events))}
+let currentCategory="ყველა",currentEvent=null,currentTicketIndex=0,quantity=1;
 
-let currentCategory="ყველა";
-let currentEvent=null;
-let currentTicket=null;
-let quantity=1;
-
-function hideAllPages(){
-  document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
-}
-function showPage(id){
-  hideAllPages();
-  document.getElementById(id).classList.add("active");
-  window.scrollTo({top:0,behavior:"smooth"});
-}
+function hideAllPages(){document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"))}
+function showPage(id){hideAllPages();document.getElementById(id).classList.add("active");window.scrollTo({top:0,behavior:"smooth"})}
 function showHome(){showPage("home-page");renderHome()}
 function goEvents(){showPage("events-page");renderEvents()}
 function goSports(){showPage("sports-page");renderSports()}
 function backToEvents(){goEvents()}
 
+function escapeHTML(s){
+ return String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));
+}
 function eventCard(e){
-  const prices=e.tickets.map(t=>Number(t.price)||0);
-  return `<div class="card">
-    <div class="event-image">${e.emoji||"🎟️"}</div>
-    <div class="card-body">
-      <p class="muted">${escapeHTML(e.category)}</p>
-      <h3>${escapeHTML(e.title)}</h3>
-      <p class="muted">📅 ${escapeHTML(e.date)}</p>
-      <p class="muted">📍 ${escapeHTML(e.place)}</p>
-      <p class="price">₾${Math.min(...prices)} - ₾${Math.max(...prices)}</p>
-      <button class="primary" onclick="openEvent(${e.id})">დეტალები</button>
-    </div>
-  </div>`;
+ const prices=e.tickets.map(t=>Number(t.price)||0);
+ const available=e.tickets.reduce((sum,t)=>sum+(Number(t.stock)||0),0);
+ return `<div class="card">
+ <div class="event-image">${e.emoji||"🎟️"}</div><div class="card-body">
+ <p class="muted">${escapeHTML(e.category)}</p><h3>${escapeHTML(e.title)}</h3>
+ <p class="muted">📅 ${escapeHTML(e.date)}</p><p class="muted">📍 ${escapeHTML(e.place)}</p>
+ <p class="price">₾${Math.min(...prices)} - ₾${Math.max(...prices)}</p>
+ <p class="stock ${available===0?"out":""}">${available===0?"ბილეთები ამოწურულია":"დარჩენილია "+available+" ბილეთი"}</p>
+ <button class="primary" onclick="openEvent(${e.id})">დეტალები</button></div></div>`;
 }
-
-function renderHome(){
-  document.getElementById("home-events").innerHTML=
-    events.slice(0,4).map(eventCard).join("")||
-    '<div class="empty">ღონისძიებები ჯერ არ არის.</div>';
-}
-
+function renderHome(){document.getElementById("home-events").innerHTML=events.slice(0,4).map(eventCard).join("")||'<div class="empty">ღონისძიებები ჯერ არ არის.</div>'}
 function renderEvents(){
-  const search=(document.getElementById("search-input")?.value||"").toLowerCase();
-  const filtered=events.filter(e=>
-    (currentCategory==="ყველა"||e.category===currentCategory)&&
-    (e.title+" "+e.category+" "+e.place).toLowerCase().includes(search)
-  );
-  document.getElementById("events-list").innerHTML=
-    filtered.length?filtered.map(eventCard).join(""):'<div class="empty">ღონისძიება ვერ მოიძებნა.</div>';
+ const search=(document.getElementById("search-input")?.value||"").toLowerCase();
+ const filtered=events.filter(e=>(currentCategory==="ყველა"||e.category===currentCategory)&&(e.title+" "+e.category+" "+e.place).toLowerCase().includes(search));
+ document.getElementById("events-list").innerHTML=filtered.length?filtered.map(eventCard).join(""):'<div class="empty">ღონისძიება ვერ მოიძებნა.</div>';
 }
-
 function renderSports(){
-  const list=events.filter(e=>e.category==="სპორტი");
-  document.getElementById("sports-list").innerHTML=
-    list.length?list.map(eventCard).join(""):'<div class="empty">სპორტული ღონისძიებები ჯერ არ არის.</div>';
+ const list=events.filter(e=>e.category==="სპორტი");
+ document.getElementById("sports-list").innerHTML=list.length?list.map(eventCard).join(""):'<div class="empty">სპორტული ღონისძიებები ჯერ არ არის.</div>';
 }
-
 function setCategory(cat,button){
-  currentCategory=cat;
-  document.querySelectorAll(".filters button").forEach(b=>b.classList.remove("selected"));
-  if(button)button.classList.add("selected");
-  renderEvents();
+ currentCategory=cat;document.querySelectorAll(".filters button").forEach(b=>b.classList.remove("selected"));
+ if(button)button.classList.add("selected");renderEvents();
 }
-
 function openEvent(id){
-  currentEvent=events.find(e=>e.id===id);
-  if(!currentEvent)return;
-  currentTicket=currentEvent.tickets[0];
-  quantity=1;
-  showPage("event-detail-page");
-  renderDetail();
+ currentEvent=events.find(e=>e.id===id);if(!currentEvent)return;
+ currentTicketIndex=0;quantity=1;showPage("event-detail-page");renderDetail();
 }
-
 function renderDetail(){
-  const e=currentEvent;
-  document.getElementById("event-detail").innerHTML=`
-    <div class="hero">
-      <div style="font-size:70px">${e.emoji||"🎟️"}</div>
-      <h1>${escapeHTML(e.title)}</h1>
-      <p>${escapeHTML(e.category)} · 📍 ${escapeHTML(e.place)}</p>
-      <p>📅 ${escapeHTML(e.date)}</p>
-    </div>
-    <div class="detail-box">
-      <h2>ღონისძიების შესახებ</h2>
-      <p>${escapeHTML(e.desc)}</p>
-      <h2>აირჩიე ბილეთი</h2>
-      ${e.tickets.map((t,i)=>`
-        <div class="ticket-option">
-          <div><strong>${escapeHTML(t.name)}</strong><br><span class="price">₾${t.price}</span></div>
-          <button class="secondary" onclick="selectTicket(${i})">არჩევა</button>
-        </div>`).join("")}
-      <div class="ticket-option">
-        <span>ბილეთების რაოდენობა</span>
-        <input type="number" id="quantity-input" min="1" max="10" value="${quantity}" onchange="changeQuantity(this.value)">
-      </div>
-      <div class="total" id="total-price"></div>
-      <button class="primary" style="width:100%" onclick="demoCheckout()">დემო შეკვეთის შექმნა</button>
-      <p class="warning">ეს სატესტო ფუნქციაა. თანხა არ ჩამოგეჭრება და რეალური ბილეთი არ გაიცემა.</p>
-    </div>`;
-  updateSummary();
+ const e=currentEvent;
+ document.getElementById("event-detail").innerHTML=`
+ <div class="hero"><div style="font-size:70px">${e.emoji||"🎟️"}</div>
+ <h1>${escapeHTML(e.title)}</h1><p>${escapeHTML(e.category)} · 📍 ${escapeHTML(e.place)}</p><p>📅 ${escapeHTML(e.date)}</p></div>
+ <div class="detail-box"><h2>ღონისძიების შესახებ</h2><p>${escapeHTML(e.desc)}</p><h2>აირჩიე ბილეთი</h2>
+ <div id="ticket-options">${e.tickets.map((t,i)=>`
+ <div class="ticket-option"><div><strong>${escapeHTML(t.name)}</strong><br><span class="price">₾${t.price}</span><br>
+ <span class="stock ${t.stock===0?"out":""}">${t.stock===0?"ამოწურულია":"დარჩენილია: "+t.stock}</span></div>
+ <button class="secondary" onclick="selectTicket(${i})">არჩევა</button></div>`).join("")}</div>
+ <div class="ticket-option"><span>ბილეთების რაოდენობა</span>
+ <input type="number" id="quantity-input" min="1" max="10" value="1" onchange="changeQuantity(this.value)"></div>
+ <div class="total" id="total-price"></div><button class="primary" style="width:100%" onclick="demoCheckout()">დემო შეკვეთის შექმნა</button>
+ <p class="warning">ეს სატესტო ფუნქციაა. თანხა არ ჩამოგეჭრება და რეალური ბილეთი არ გაიცემა.</p></div>`;
+ updateSummary();
 }
-
-function selectTicket(index){
-  currentTicket=currentEvent.tickets[index];
-  updateSummary();
-}
+function selectTicket(i){currentTicketIndex=i;quantity=1;document.getElementById("quantity-input").value=1;updateSummary()}
 function changeQuantity(v){
-  quantity=Math.max(1,Math.min(10,parseInt(v)||1));
-  document.getElementById("quantity-input").value=quantity;
-  updateSummary();
+ const ticket=currentEvent.tickets[currentTicketIndex];
+ quantity=Math.max(1,Math.min(10,parseInt(v)||1,Number(ticket.stock)||1));
+ document.getElementById("quantity-input").value=quantity;updateSummary();
 }
 function updateSummary(){
-  const el=document.getElementById("total-price");
-  if(el&&currentTicket)el.innerText="ჯამი: ₾"+currentTicket.price*quantity;
+ const el=document.getElementById("total-price");if(!el||!currentEvent)return;
+ const t=currentEvent.tickets[currentTicketIndex];
+ el.innerText=t.stock===0?"ეს ბილეთი ამოწურულია":"ჯამი: ₾"+t.price*quantity+" · დარჩენილია "+t.stock;
 }
-
-function getOrders(){
-  try{return JSON.parse(localStorage.getItem("eventPlusOrders")||"[]")}
-  catch(e){return []}
-}
+function getOrders(){try{return JSON.parse(localStorage.getItem("eventPlusOrders")||"[]")}catch(e){return []}}
 
 function demoCheckout(){
-  if(!currentEvent||!currentTicket)return;
-  const order={
-    orderId:"EV-"+Date.now().toString().slice(-8),
-    eventId:currentEvent.id,
-    eventTitle:currentEvent.title,
-    eventEmoji:currentEvent.emoji,
-    eventDate:currentEvent.date,
-    place:currentEvent.place,
-    ticketType:currentTicket.name,
-    price:currentTicket.price,
-    quantity,
-    total:currentTicket.price*quantity,
-    createdAt:new Date().toLocaleString("ka-GE")
-  };
-  const orders=getOrders();
-  orders.unshift(order);
-  localStorage.setItem("eventPlusOrders",JSON.stringify(orders));
-  showPage("order-confirmation-page");
-  document.getElementById("confirmation-content").innerHTML=`
-    <h2>${order.eventEmoji} ${escapeHTML(order.eventTitle)}</h2>
-    <p><strong>შეკვეთის ნომერი:</strong> ${order.orderId}</p>
-    <p><strong>ბილეთი:</strong> ${escapeHTML(order.ticketType)}</p>
-    <p><strong>რაოდენობა:</strong> ${order.quantity}</p>
-    <p><strong>ჯამი:</strong> ₾${order.total}</p>
-    <p><strong>შექმნის დრო:</strong> ${order.createdAt}</p>
-    <p class="warning">დემო შეკვეთა — რეალური გადახდა არ შესრულებულა.</p>`;
+ if(!currentEvent)return;
+ const event=events.find(e=>e.id===currentEvent.id);
+ const ticket=event?.tickets[currentTicketIndex];
+ if(!ticket){alert("ბილეთი ვერ მოიძებნა.");return}
+ if(ticket.stock<quantity){alert("სამწუხაროდ, ამ რაოდენობის ბილეთი აღარ არის დარჩენილი.");renderDetail();return}
+ ticket.stock-=quantity;
+ saveEvents();
+ const order={
+  orderId:"EV-"+Date.now().toString().slice(-8),
+  eventId:event.id,eventTitle:event.title,eventEmoji:event.emoji,
+  eventDate:event.date,place:event.place,ticketType:ticket.name,
+  price:ticket.price,quantity,total:ticket.price*quantity,
+  createdAt:new Date().toLocaleString("ka-GE")
+ };
+ const orders=getOrders();orders.unshift(order);
+ localStorage.setItem("eventPlusOrders",JSON.stringify(orders));
+ showPage("order-confirmation-page");
+ document.getElementById("confirmation-content").innerHTML=`
+ <h2>${order.eventEmoji} ${escapeHTML(order.eventTitle)}</h2>
+ <p><strong>შეკვეთის ნომერი:</strong> ${order.orderId}</p>
+ <p><strong>ბილეთი:</strong> ${escapeHTML(order.ticketType)}</p>
+ <p><strong>რაოდენობა:</strong> ${order.quantity}</p><p><strong>ჯამი:</strong> ₾${order.total}</p>
+ <p><strong>შექმნის დრო:</strong> ${order.createdAt}</p>
+ <p class="warning">დემო შეკვეთა — რეალური გადახდა არ შესრულებულა.</p>`;
 }
 
 function showMyTickets(){
-  showPage("my-tickets-page");
-  const orders=getOrders();
-  const list=document.getElementById("tickets-list");
-  if(!orders.length){
-    list.innerHTML='<div class="empty">ჯერ ბილეთები არ გაქვს. აირჩიე ღონისძიება და შექმენი დემო შეკვეთა.</div>';
-    return;
-  }
-  list.innerHTML=orders.map(o=>`
-    <div class="detail-box">
-      <h2>${o.eventEmoji||"🎟️"} ${escapeHTML(o.eventTitle)}</h2>
-      <p><strong>შეკვეთა:</strong> ${o.orderId}</p>
-      <p><strong>ბილეთის ტიპი:</strong> ${escapeHTML(o.ticketType)}</p>
-      <p><strong>რაოდენობა:</strong> ${o.quantity}</p>
-      <p><strong>ფასი:</strong> ₾${o.total}</p>
-      <p><strong>თარიღი:</strong> ${escapeHTML(o.eventDate||"დაზუსტდება")}</p>
-      <p><strong>ადგილი:</strong> ${escapeHTML(o.place||"დაზუსტდება")}</p>
-      <p class="warning">სატესტო შეკვეთა. QR და რეალური ბილეთი ჯერ არ არის.</p>
-    </div>`).join("");
+ showPage("my-tickets-page");const orders=getOrders(),list=document.getElementById("tickets-list");
+ if(!orders.length){list.innerHTML='<div class="empty">ჯერ ბილეთები არ გაქვს.</div>';return}
+ list.innerHTML=orders.map(o=>`<div class="detail-box"><h2>${o.eventEmoji||"🎟️"} ${escapeHTML(o.eventTitle)}</h2>
+ <p><strong>შეკვეთა:</strong> ${o.orderId}</p><p><strong>ბილეთი:</strong> ${escapeHTML(o.ticketType)}</p>
+ <p><strong>რაოდენობა:</strong> ${o.quantity}</p><p><strong>ჯამი:</strong> ₾${o.total}</p>
+ <p><strong>თარიღი:</strong> ${escapeHTML(o.eventDate||"დაზუსტდება")}</p>
+ <p><strong>ადგილი:</strong> ${escapeHTML(o.place||"დაზუსტდება")}</p>
+ <p class="warning">სატესტო შეკვეთა. QR და რეალური ბილეთი ჯერ არ არის.</p></div>`).join("");
 }
 
 /* DEMO ACCOUNT */
 let accountMode="register";
-
-function getAccounts(){
-  try{return JSON.parse(localStorage.getItem("eventPlusDemoAccounts")||"[]")}
-  catch(e){return []}
-}
+function getAccounts(){try{return JSON.parse(localStorage.getItem("eventPlusDemoAccounts")||"[]")}catch(e){return []}}
 function getLoggedIn(){return localStorage.getItem("eventPlusLoggedIn")||""}
 function showAccount(){showPage("account-page");renderAccount()}
-
 function renderAccount(){
-  const content=document.getElementById("account-content");
-  const logged=getLoggedIn();
-  if(logged){
-    const a=getAccounts().find(x=>x.email===logged);
-    if(!a){
-      localStorage.removeItem("eventPlusLoggedIn");
-      renderAccount();
-      return;
-    }
-    content.innerHTML=`
-      <div class="account-card">
-        <h2>ჩემი პროფილი</h2>
-        <div class="profile-info">
-          <p><strong>სახელი:</strong> ${escapeHTML(a.name)}</p>
-          <p><strong>Email:</strong> ${escapeHTML(a.email)}</p>
-        </div>
-        <button class="primary" onclick="showMyTickets()">🎟️ ჩემი ბილეთები</button>
-        <button class="secondary" onclick="logout()">გამოსვლა</button>
-        <p class="warning">დემო პროფილი — მონაცემები ინახება მხოლოდ ამ ბრაუზერში.</p>
-      </div>`;
-    return;
-  }
-  content.innerHTML=`
-    <div class="account-card">
-      <h2>${accountMode==="register"?"ანგარიშის შექმნა":"შესვლა"}</h2>
-      ${accountMode==="register"?'<input id="account-name" placeholder="სახელი">':""}
-      <input id="account-email" type="email" placeholder="Email">
-      <input id="account-password" type="password" placeholder="პაროლი">
-      <button class="primary" onclick="submitAccount()">${accountMode==="register"?"რეგისტრაცია":"შესვლა"}</button>
-      <button class="account-switch" onclick="switchAccountMode()">${accountMode==="register"?"უკვე გაქვს ანგარიში? შესვლა":"არ გაქვს ანგარიში? რეგისტრაცია"}</button>
-      <p id="account-message"></p>
-      <p class="warning">დემო სისტემა: პაროლი ინახება ბრაუზერში და დაცული არ არის. გამოიყენე მხოლოდ სატესტო მონაცემები.</p>
-    </div>`;
+ const content=document.getElementById("account-content"),logged=getLoggedIn();
+ if(logged){
+  const a=getAccounts().find(x=>x.email===logged);
+  if(!a){localStorage.removeItem("eventPlusLoggedIn");renderAccount();return}
+  content.innerHTML=`<div class="account-card"><h2>ჩემი პროფილი</h2>
+  <div class="profile-info"><p><strong>სახელი:</strong> ${escapeHTML(a.name)}</p><p><strong>Email:</strong> ${escapeHTML(a.email)}</p></div>
+  <button class="primary" onclick="showMyTickets()">🎟️ ჩემი ბილეთები</button>
+  <button class="secondary" onclick="logout()">გამოსვლა</button>
+  <p class="warning">დემო პროფილი — მონაცემები ინახება მხოლოდ ამ ბრაუზერში.</p></div>`;return;
+ }
+ content.innerHTML=`<div class="account-card"><h2>${accountMode==="register"?"ანგარიშის შექმნა":"შესვლა"}</h2>
+ ${accountMode==="register"?'<input id="account-name" placeholder="სახელი">':""}
+ <input id="account-email" type="email" placeholder="Email"><input id="account-password" type="password" placeholder="პაროლი">
+ <button class="primary" onclick="submitAccount()">${accountMode==="register"?"რეგისტრაცია":"შესვლა"}</button>
+ <button class="account-switch" onclick="switchAccountMode()">${accountMode==="register"?"უკვე გაქვს ანგარიში? შესვლა":"არ გაქვს ანგარიში? რეგისტრაცია"}</button>
+ <p id="account-message"></p><p class="warning">დემო სისტემა: პაროლი ინახება ბრაუზერში და დაცული არ არის. გამოიყენე მხოლოდ სატესტო მონაცემები.</p></div>`;
 }
-
-function switchAccountMode(){
-  accountMode=accountMode==="register"?"login":"register";
-  renderAccount();
-}
+function switchAccountMode(){accountMode=accountMode==="register"?"login":"register";renderAccount()}
 function submitAccount(){
-  const email=(document.getElementById("account-email")?.value||"").trim().toLowerCase();
-  const password=document.getElementById("account-password")?.value||"";
-  const name=(document.getElementById("account-name")?.value||"").trim();
-  const msg=document.getElementById("account-message");
-  if(!email||!password){msg.innerText="შეავსე Email და პაროლი.";return}
-  if(password.length<4){msg.innerText="დემო პაროლი მინიმუმ 4 სიმბოლო უნდა იყოს.";return}
-  let accounts=getAccounts();
-  if(accountMode==="register"){
-    if(!name){msg.innerText="შეიყვანე სახელი.";return}
-    if(accounts.some(a=>a.email===email)){
-      msg.innerText="ეს Email უკვე რეგისტრირებულია. სცადე შესვლა.";
-      return;
-    }
-    accounts.push({name,email,password});
-    localStorage.setItem("eventPlusDemoAccounts",JSON.stringify(accounts));
-    localStorage.setItem("eventPlusLoggedIn",email);
-    renderAccount();
-  }else{
-    const a=accounts.find(a=>a.email===email&&a.password===password);
-    if(!a){msg.innerText="Email ან პაროლი არასწორია.";return}
-    localStorage.setItem("eventPlusLoggedIn",email);
-    renderAccount();
-  }
+ const email=(document.getElementById("account-email").value||"").trim().toLowerCase();
+ const password=document.getElementById("account-password").value||"";
+ const name=(document.getElementById("account-name")?.value||"").trim();
+ const msg=document.getElementById("account-message");
+ if(!email||!password){msg.innerText="შეავსე Email და პაროლი.";return}
+ if(password.length<4){msg.innerText="დემო პაროლი მინიმუმ 4 სიმბოლო უნდა იყოს.";return}
+ let accounts=getAccounts();
+ if(accountMode==="register"){
+  if(!name){msg.innerText="შეიყვანე სახელი.";return}
+  if(accounts.some(a=>a.email===email)){msg.innerText="ეს Email უკვე რეგისტრირებულია.";return}
+  accounts.push({name,email,password});localStorage.setItem("eventPlusDemoAccounts",JSON.stringify(accounts));
+  localStorage.setItem("eventPlusLoggedIn",email);renderAccount();
+ }else{
+  const a=accounts.find(a=>a.email===email&&a.password===password);
+  if(!a){msg.innerText="Email ან პაროლი არასწორია.";return}
+  localStorage.setItem("eventPlusLoggedIn",email);renderAccount();
+ }
 }
-function logout(){
-  localStorage.removeItem("eventPlusLoggedIn");
-  accountMode="login";
-  renderAccount();
-}
+function logout(){localStorage.removeItem("eventPlusLoggedIn");accountMode="login";renderAccount()}
 
-function escapeHTML(s){
-  return String(s??"").replace(/[&<>"']/g,m=>({
-    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
-  }[m]));
-}
-
-/* ADMIN PANEL */
-function showAdmin(){
-  showPage("admin-page");
-  renderAdmin();
-}
-
+/* ADMIN */
+function showAdmin(){showPage("admin-page");renderAdmin()}
 function renderAdmin(){
-  const totalOrders=getOrders().length;
-  const revenue=getOrders().reduce((sum,o)=>sum+(Number(o.total)||0),0);
-  const el=document.getElementById("admin-content");
-
-  el.innerHTML=`
-    <div class="admin-stats">
-      <div class="stat">ღონისძიებები<strong>${events.length}</strong></div>
-      <div class="stat">დემო შეკვეთები<strong>${totalOrders}</strong></div>
-      <div class="stat">დემო შეკვეთების ჯამი<strong>₾${revenue}</strong></div>
-    </div>
-
-    <div class="admin-form">
-      <h2>➕ ახალი ღონისძიების დამატება</h2>
-
-      <label>ღონისძიების სახელი</label>
-      <input class="field" id="new-title" placeholder="მაგ. თბილისის მუსიკალური საღამო">
-
-      <label>კატეგორია</label>
-      <select class="field" id="new-category">
-        <option>კონცერტი</option>
-        <option>ფესტივალი</option>
-        <option>კლუბი</option>
-        <option>თეატრი</option>
-        <option>სპორტი</option>
-      </select>
-
-      <label>თარიღი</label>
-      <input class="field" id="new-date" placeholder="მაგ. 2026 წლის 20 დეკემბერი">
-
-      <label>ადგილი</label>
-      <input class="field" id="new-place" placeholder="მაგ. თბილისი">
-
-      <label>აღწერა</label>
-      <textarea class="field" id="new-desc" rows="3" placeholder="მოკლე ინფორმაცია ღონისძიების შესახებ"></textarea>
-
-      <label>ემოჯი / სიმბოლო</label>
-      <input class="field" id="new-emoji" maxlength="4" value="🎉" placeholder="🎉">
-
-      <h3>ბილეთების ტიპები</h3>
-      <div class="ticket-editor">
-        <input class="field" id="ticket1-name" value="Standard" placeholder="ბილეთის სახელი">
-        <input class="field" id="ticket1-price" type="number" min="1" value="30" placeholder="ფასი">
-      </div>
-      <div class="ticket-editor">
-        <input class="field" id="ticket2-name" value="VIP" placeholder="ბილეთის სახელი">
-        <input class="field" id="ticket2-price" type="number" min="1" value="70" placeholder="ფასი">
-      </div>
-
-      <button class="primary" onclick="addAdminEvent()">ღონისძიების დამატება</button>
-      <p id="admin-message"></p>
-    </div>
-
-    <div id="admin-edit-area"></div>
-    <h2>შენი ღონისძიებები</h2>
-    <div id="admin-events"></div>`;
-
-  renderAdminEvents();
+ const orders=getOrders(),revenue=orders.reduce((s,o)=>s+(Number(o.total)||0),0);
+ document.getElementById("admin-content").innerHTML=`
+ <div class="admin-stats">
+ <div class="stat">ღონისძიებები<strong>${events.length}</strong></div>
+ <div class="stat">დემო შეკვეთები<strong>${orders.length}</strong></div>
+ <div class="stat">დემო შეკვეთების ჯამი<strong>₾${revenue}</strong></div>
+ </div>
+ <div class="admin-form"><h2>➕ ახალი ღონისძიების დამატება</h2>
+ <label>ღონისძიების სახელი</label><input class="field" id="new-title" placeholder="მაგ. თბილისის მუსიკალური საღამო">
+ <label>კატეგორია</label><select class="field" id="new-category"><option>კონცერტი</option><option>ფესტივალი</option><option>კლუბი</option><option>თეატრი</option><option>სპორტი</option></select>
+ <label>თარიღი</label><input class="field" id="new-date" placeholder="მაგ. 2026 წლის 20 დეკემბერი">
+ <label>ადგილი</label><input class="field" id="new-place" placeholder="მაგ. თბილისი">
+ <label>აღწერა</label><textarea class="field" id="new-desc" rows="3" placeholder="ღონისძიების შესახებ"></textarea>
+ <label>ემოჯი / სიმბოლო</label><input class="field" id="new-emoji" maxlength="4" value="🎉">
+ <h3>ბილეთების ტიპები და მარაგი</h3>
+ <p class="muted">თითოეული ბილეთისთვის მიუთითე ფასი და საწყისი რაოდენობა.</p>
+ <div class="ticket-editor"><input class="field" id="ticket1-name" value="Standard" placeholder="სახელი"><input class="field" id="ticket1-price" type="number" min="1" value="30" placeholder="ფასი"><input class="field" id="ticket1-stock" type="number" min="0" value="100" placeholder="რაოდენობა"></div>
+ <div class="ticket-editor"><input class="field" id="ticket2-name" value="VIP" placeholder="სახელი"><input class="field" id="ticket2-price" type="number" min="1" value="70" placeholder="ფასი"><input class="field" id="ticket2-stock" type="number" min="0" value="30" placeholder="რაოდენობა"></div>
+ <button class="primary" onclick="addAdminEvent()">ღონისძიების დამატება</button><p id="admin-message"></p></div>
+ <div id="admin-edit-area"></div><h2>შენი ღონისძიებები</h2><div id="admin-events"></div>`;
+ renderAdminEvents();
 }
-
+function readTicketFields(prefix){
+ const result=[];
+ for(let i=1;i<=2;i++){
+  const name=document.getElementById(prefix+"-ticket"+i+"-name")?.value.trim();
+  const price=Number(document.getElementById(prefix+"-ticket"+i+"-price")?.value);
+  const stock=Number(document.getElementById(prefix+"-ticket"+i+"-stock")?.value);
+  if(name&&price>0&&Number.isInteger(stock)&&stock>=0)result.push({name,price,stock});
+  else if(name||price||stock){if(name||price) return null;}
+ }
+ return result.length?result:null;
+}
 function addAdminEvent(){
-  const title=document.getElementById("new-title").value.trim();
-  const category=document.getElementById("new-category").value;
-  const date=document.getElementById("new-date").value.trim()||"თარიღი დაზუსტდება";
-  const place=document.getElementById("new-place").value.trim();
-  const desc=document.getElementById("new-desc").value.trim();
-  const emoji=document.getElementById("new-emoji").value.trim()||"🎉";
-  const t1=document.getElementById("ticket1-name").value.trim();
-  const p1=Number(document.getElementById("ticket1-price").value);
-  const t2=document.getElementById("ticket2-name").value.trim();
-  const p2=Number(document.getElementById("ticket2-price").value);
-  const msg=document.getElementById("admin-message");
-
-  if(!title||!place||!desc||!t1||!p1||p1<1){
-    msg.textContent="შეავსე ღონისძიების სახელი, ადგილი, აღწერა და პირველი ბილეთის ფასი.";
-    return;
-  }
-
-  const tickets=[{name:t1,price:p1}];
-  if(t2&&p2>0)tickets.push({name:t2,price:p2});
-
-  const event={id:Date.now(),title,category,date,place,desc,emoji,tickets};
-  events.unshift(event);
-  saveEvents();
-  renderAdmin();
-  document.getElementById("admin-content").scrollIntoView({behavior:"smooth"});
+ const title=document.getElementById("new-title").value.trim();
+ const place=document.getElementById("new-place").value.trim();
+ const desc=document.getElementById("new-desc").value.trim();
+ const msg=document.getElementById("admin-message");
+ const tickets=readTicketFields("new");
+ if(!title||!place||!desc||!tickets){msg.textContent="შეავსე ღონისძიების მონაცემები და ბილეთების სწორი ფასი/რაოდენობა. მარაგი შეიძლება იყოს 0.";return}
+ events.unshift({
+  id:Date.now(),title,category:document.getElementById("new-category").value,
+  date:document.getElementById("new-date").value.trim()||"თარიღი დაზუსტდება",
+  place,desc,emoji:document.getElementById("new-emoji").value.trim()||"🎉",tickets
+ });
+ saveEvents();renderAdmin();
 }
-
 function renderAdminEvents(){
-  const box=document.getElementById("admin-events");
-  if(!box)return;
-
-  if(!events.length){
-    box.innerHTML='<div class="empty">ღონისძიებები ჯერ არ არის.</div>';
-    return;
-  }
-
-  box.innerHTML=events.map(e=>`
-    <div class="detail-box">
-      <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap">
-        <div>
-          <h3>${e.emoji||"🎟️"} ${escapeHTML(e.title)}</h3>
-          <p class="muted">${escapeHTML(e.category)} · ${escapeHTML(e.date)} · ${escapeHTML(e.place)}</p>
-          <p>${e.tickets.map(t=>escapeHTML(t.name)+" — ₾"+t.price).join(" | ")}</p>
-        </div>
-        <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
-          <button class="secondary" onclick="editAdminEvent(${e.id})">✏️ რედაქტირება</button>
-          <button class="danger" onclick="deleteAdminEvent(${e.id})">წაშლა</button>
-        </div>
-      </div>
-    </div>`).join("");
+ const box=document.getElementById("admin-events");if(!box)return;
+ if(!events.length){box.innerHTML='<div class="empty">ღონისძიებები ჯერ არ არის.</div>';return}
+ box.innerHTML=events.map(e=>`<div class="detail-box">
+ <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap">
+ <div><h3>${e.emoji||"🎟️"} ${escapeHTML(e.title)}</h3>
+ <p class="muted">${escapeHTML(e.category)} · ${escapeHTML(e.date)} · ${escapeHTML(e.place)}</p>
+ ${e.tickets.map(t=>`<p>${escapeHTML(t.name)} — ₾${t.price} · მარაგი: <strong>${t.stock}</strong></p>`).join("")}</div>
+ <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+ <button class="secondary" onclick="editAdminEvent(${e.id})">✏️ რედაქტირება</button>
+ <button class="danger" onclick="deleteAdminEvent(${e.id})">წაშლა</button></div></div></div>`).join("");
 }
 
 /* EVENT EDITING */
 function editAdminEvent(id){
-  const e=events.find(item=>item.id===id);
-  if(!e)return;
-
-  const area=document.getElementById("admin-edit-area");
-  const t1=e.tickets?.[0]||{name:"Standard",price:0};
-  const t2=e.tickets?.[1]||{name:"",price:""};
-
-  area.innerHTML=`
-    <div class="admin-form" id="edit-event-form">
-      <h2>✏️ ღონისძიების რედაქტირება</h2>
-
-      <label>ღონისძიების სახელი</label>
-      <input class="field" id="edit-title" value="${escapeHTML(e.title)}">
-
-      <label>კატეგორია</label>
-      <select class="field" id="edit-category">
-        ${["კონცერტი","ფესტივალი","კლუბი","თეატრი","სპორტი"].map(c=>
-          `<option ${e.category===c?"selected":""}>${c}</option>`
-        ).join("")}
-      </select>
-
-      <label>თარიღი</label>
-      <input class="field" id="edit-date" value="${escapeHTML(e.date)}">
-
-      <label>ადგილი</label>
-      <input class="field" id="edit-place" value="${escapeHTML(e.place)}">
-
-      <label>აღწერა</label>
-      <textarea class="field" id="edit-desc" rows="3">${escapeHTML(e.desc)}</textarea>
-
-      <label>ემოჯი / სიმბოლო</label>
-      <input class="field" id="edit-emoji" maxlength="4" value="${escapeHTML(e.emoji||"🎉")}">
-
-      <h3>ბილეთების ტიპები</h3>
-      <div class="ticket-editor">
-        <input class="field" id="edit-ticket1-name" value="${escapeHTML(t1.name)}" placeholder="ბილეთის სახელი">
-        <input class="field" id="edit-ticket1-price" type="number" min="1" value="${Number(t1.price)||""}" placeholder="ფასი">
-      </div>
-      <div class="ticket-editor">
-        <input class="field" id="edit-ticket2-name" value="${escapeHTML(t2.name)}" placeholder="ბილეთის სახელი">
-        <input class="field" id="edit-ticket2-price" type="number" min="1" value="${Number(t2.price)||""}" placeholder="ფასი">
-      </div>
-
-      <button class="primary" onclick="saveAdminEdit(${id})">ცვლილებების შენახვა</button>
-      <button class="secondary" onclick="document.getElementById('admin-edit-area').innerHTML=''">გაუქმება</button>
-      <p id="edit-admin-message"></p>
-    </div>`;
-
-  area.scrollIntoView({behavior:"smooth",block:"start"});
+ const e=events.find(x=>x.id===id);if(!e)return;
+ const t1=e.tickets[0]||{name:"Standard",price:0,stock:0},t2=e.tickets[1]||{name:"",price:"",stock:""};
+ document.getElementById("admin-edit-area").innerHTML=`
+ <div class="admin-form" id="edit-event-form"><h2>✏️ ღონისძიების რედაქტირება</h2>
+ <label>ღონისძიების სახელი</label><input class="field" id="edit-title" value="${escapeHTML(e.title)}">
+ <label>კატეგორია</label><select class="field" id="edit-category">${["კონცერტი","ფესტივალი","კლუბი","თეატრი","სპორტი"].map(c=>`<option ${e.category===c?"selected":""}>${c}</option>`).join("")}</select>
+ <label>თარიღი</label><input class="field" id="edit-date" value="${escapeHTML(e.date)}">
+ <label>ადგილი</label><input class="field" id="edit-place" value="${escapeHTML(e.place)}">
+ <label>აღწერა</label><textarea class="field" id="edit-desc" rows="3">${escapeHTML(e.desc)}</textarea>
+ <label>ემოჯი / სიმბოლო</label><input class="field" id="edit-emoji" maxlength="4" value="${escapeHTML(e.emoji||"🎉")}">
+ <h3>ბილეთების ტიპები, ფასები და მარაგი</h3>
+ <div class="ticket-editor"><input class="field" id="edit-ticket1-name" value="${escapeHTML(t1.name)}" placeholder="სახელი"><input class="field" id="edit-ticket1-price" type="number" min="1" value="${t1.price}" placeholder="ფასი"><input class="field" id="edit-ticket1-stock" type="number" min="0" value="${t1.stock}" placeholder="მარაგი"></div>
+ <div class="ticket-editor"><input class="field" id="edit-ticket2-name" value="${escapeHTML(t2.name)}" placeholder="სახელი"><input class="field" id="edit-ticket2-price" type="number" min="1" value="${t2.price}" placeholder="ფასი"><input class="field" id="edit-ticket2-stock" type="number" min="0" value="${t2.stock}" placeholder="მარაგი"></div>
+ <p class="warning">ყურადღება: მარაგის ხელით შეცვლისას შეამოწმე უკვე შექმნილი შეკვეთების რაოდენობაც.</p>
+ <button class="primary" onclick="saveAdminEdit(${id})">ცვლილებების შენახვა</button>
+ <button class="secondary" onclick="document.getElementById('admin-edit-area').innerHTML=''">გაუქმება</button>
+ <p id="edit-admin-message"></p></div>`;
+ document.getElementById("edit-event-form").scrollIntoView({behavior:"smooth"});
 }
-
 function saveAdminEdit(id){
-  const e=events.find(item=>item.id===id);
-  if(!e)return;
-
-  const title=document.getElementById("edit-title").value.trim();
-  const place=document.getElementById("edit-place").value.trim();
-  const desc=document.getElementById("edit-desc").value.trim();
-  const t1=document.getElementById("edit-ticket1-name").value.trim();
-  const p1=Number(document.getElementById("edit-ticket1-price").value);
-  const t2=document.getElementById("edit-ticket2-name").value.trim();
-  const p2=Number(document.getElementById("edit-ticket2-price").value);
-  const msg=document.getElementById("edit-admin-message");
-
-  if(!title||!place||!desc||!t1||!p1||p1<1){
-    msg.textContent="შეავსე სახელი, ადგილი, აღწერა და პირველი ბილეთის ფასი.";
-    return;
-  }
-
-  const tickets=[{name:t1,price:p1}];
-  if(t2&&p2>0)tickets.push({name:t2,price:p2});
-
-  Object.assign(e,{
-    title,
-    category:document.getElementById("edit-category").value,
-    date:document.getElementById("edit-date").value.trim()||"თარიღი დაზუსტდება",
-    place,
-    desc,
-    emoji:document.getElementById("edit-emoji").value.trim()||"🎉",
-    tickets
-  });
-
-  saveEvents();
-  renderAdmin();
-
-  const box=document.getElementById("admin-content");
-  box.insertAdjacentHTML("afterbegin",'<p class="warning">ცვლილებები წარმატებით შეინახა.</p>');
-  box.scrollIntoView({behavior:"smooth"});
+ const e=events.find(x=>x.id===id);if(!e)return;
+ const title=document.getElementById("edit-title").value.trim();
+ const place=document.getElementById("edit-place").value.trim();
+ const desc=document.getElementById("edit-desc").value.trim();
+ const tickets=readTicketFields("edit");
+ const msg=document.getElementById("edit-admin-message");
+ if(!title||!place||!desc||!tickets){msg.textContent="შეავსე სახელი, ადგილი, აღწერა და ბილეთების სწორი მონაცემები.";return}
+ Object.assign(e,{
+  title,place,desc,tickets,
+  category:document.getElementById("edit-category").value,
+  date:document.getElementById("edit-date").value.trim()||"თარიღი დაზუსტდება",
+  emoji:document.getElementById("edit-emoji").value.trim()||"🎉"
+ });
+ saveEvents();renderAdmin();
+ document.getElementById("admin-content").insertAdjacentHTML("afterbegin",'<p class="warning">ცვლილებები შენახულია.</p>');
 }
-
 function deleteAdminEvent(id){
-  if(!confirm("ნამდვილად გინდა ამ ღონისძიების წაშლა?"))return;
-  events=events.filter(e=>e.id!==id);
-  saveEvents();
-  renderAdmin();
+ if(!confirm("ნამდვილად გინდა ამ ღონისძიების წაშლა?"))return;
+ events=events.filter(e=>e.id!==id);saveEvents();renderAdmin();
 }
 
 /* DATE MODE */
 const dateQuestions=[
-  {title:"როგორი პაემანი გინდა?",options:["🍽️ საჭმელი და სასმელი","🌳 სეირნობა და ბუნება","🎬 გართობა და აქტივობა"]},
-  {title:"რა ატმოსფერო გირჩევნია?",options:["💕 რომანტიკული და მშვიდი","🔥 ენერგიული და მხიარული","✨ განსაკუთრებული და განსხვავებული"]},
-  {title:"რა ბიუჯეტში?",options:["💰 ბიუჯეტური","💵 საშუალო","💎 განსაკუთრებული"]}
+ {title:"როგორი პაემანი გინდა?",options:["🍽️ საჭმელი და სასმელი","🌳 სეირნობა და ბუნება","🎬 გართობა და აქტივობა"]},
+ {title:"რა ატმოსფერო გირჩევნია?",options:["💕 რომანტიკული და მშვიდი","🔥 ენერგიული და მხიარული","✨ განსაკუთრებული და განსხვავებული"]},
+ {title:"რა ბიუჯეტში?",options:["💰 ბიუჯეტური","💵 საშუალო","💎 განსაკუთრებული"]}
 ];
-
-let dateAnswers=[];
-let dateStep=0;
-
-function showDate(){
-  showPage("date-page");
-  dateAnswers=[];
-  dateStep=0;
-  renderDate();
-}
-
+let dateAnswers=[],dateStep=0;
+function showDate(){showPage("date-page");dateAnswers=[];dateStep=0;renderDate()}
 function renderDate(){
-  const content=document.getElementById("date-content");
-  if(dateStep>=dateQuestions.length){
-    showDateResult();
-    return;
-  }
-
-  const q=dateQuestions[dateStep];
-  content.innerHTML=`
-    <h2>${q.title}</h2>
-    <p>კითხვა ${dateStep+1} / ${dateQuestions.length}</p>
-    ${q.options.map((o,i)=>`
-      <button class="date-option" onclick="chooseDate(${i})">${o}</button>
-    `).join("")}
-    ${dateStep>0?'<button onclick="previousDate()">← უკან</button>':""}`;
+ const content=document.getElementById("date-content");
+ if(dateStep>=dateQuestions.length){showDateResult();return}
+ const q=dateQuestions[dateStep];
+ content.innerHTML=`<h2>${q.title}</h2><p>კითხვა ${dateStep+1} / ${dateQuestions.length}</p>
+ ${q.options.map((o,i)=>`<button class="date-option" onclick="chooseDate(${i})">${o}</button>`).join("")}
+ ${dateStep>0?'<button onclick="previousDate()">← უკან</button>':""}`;
 }
-
-function chooseDate(i){
-  dateAnswers[dateStep]=i;
-  dateStep++;
-  renderDate();
-}
-function previousDate(){
-  if(dateStep>0){
-    dateStep--;
-    renderDate();
-  }
-}
+function chooseDate(i){dateAnswers[dateStep]=i;dateStep++;renderDate()}
+function previousDate(){if(dateStep>0){dateStep--;renderDate()}}
 function showDateResult(){
-  const suggestions=[
-    ["☕ კაფე + სეირნობა","🌅 მზის ჩასვლა","🍰 დესერტის დეგუსტაცია"],
-    ["🎳 ბოულინგი","🎮 თამაშების სივრცე","🎤 კარაოკე"],
-    ["🍷 მყუდრო ვახშამი","🌃 ღამის ქალაქის გასეირნება","🎭 თეატრი"]
-  ];
-
-  document.getElementById("date-content").innerHTML=`
-    <h2>შენი პაემნის იდეები 💗</h2>
-    <p>შენი პასუხების მიხედვით გთავაზობთ:</p>
-    <div class="date-result">
-      ${(suggestions[dateAnswers[0]||0]).map(x=>`<h3>${x}</h3>`).join("")}
-    </div>
-    <button onclick="showDate()">თავიდან დაწყება</button>
-    <button onclick="showHome()">მთავარზე დაბრუნება</button>`;
+ const suggestions=[
+ ["☕ კაფე + სეირნობა","🌅 მზის ჩასვლა","🍰 დესერტის დეგუსტაცია"],
+ ["🎳 ბოულინგი","🎮 თამაშების სივრცე","🎤 კარაოკე"],
+ ["🍷 მყუდრო ვახშამი","🌃 ღამის ქალაქის გასეირნება","🎭 თეატრი"]
+ ];
+ document.getElementById("date-content").innerHTML=`<h2>შენი პაემნის იდეები 💗</h2><p>შენი პასუხების მიხედვით გთავაზობთ:</p>
+ <div class="date-result">${suggestions[dateAnswers[0]||0].map(x=>`<h3>${x}</h3>`).join("")}</div>
+ <button onclick="showDate()">თავიდან დაწყება</button><button onclick="showHome()">მთავარზე დაბრუნება</button>`;
 }
 
-/* INITIAL LOAD */
-renderHome();
-renderEvents();
-renderSports();
+/* START */
+renderHome();renderEvents();renderSports();
 </script>
 </body>
 </html>
+
 
 
 
