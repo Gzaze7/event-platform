@@ -6,6 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#0d1422">
 <title>EVENT+ | საქართველო</title>
+
 <style>
 *{box-sizing:border-box}
 body{margin:0;background:#0d1422;color:white;font-family:Arial,sans-serif}
@@ -45,8 +46,10 @@ p{color:#aab4c8;line-height:1.7}
 .small-btn{background:#e9a2bb;color:#24151c;border:0;border-radius:8px;padding:11px;font-weight:bold}
 .empty{display:none;color:#aab4c8;padding:25px}
 footer{text-align:center;border-top:1px solid #283247;padding:25px;color:#718099;margin-top:50px}
-#date,#event-detail,#order-confirmation{display:none;min-height:100vh}
-#event-detail,#order-confirmation{background:#0d1422}
+
+#date,#event-detail,#order-confirmation,#my-tickets{display:none;min-height:100vh}
+#event-detail,#order-confirmation,#my-tickets{background:#0d1422}
+
 .detail-hero{height:220px;background:linear-gradient(135deg,#293954,#694052);display:flex;align-items:center;justify-content:center;font-size:85px}
 .detail-content{max-width:850px;margin:auto;padding:25px 22px}
 .detail-content h1{font-size:clamp(32px,6vw,48px);margin:14px 0}
@@ -72,6 +75,15 @@ footer{text-align:center;border-top:1px solid #283247;padding:25px;color:#718099
 .confirm-total{font-size:21px;color:#e9a2bb;border:0}
 .confirm-warning{background:#302631;border:1px solid #70475b;padding:16px;border-radius:10px;color:#f0c4d3;line-height:1.6;margin-top:22px}
 .confirm-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+
+.my-tickets-wrap{max-width:850px;margin:auto;padding:35px 22px}
+.my-ticket{background:#182235;border:1px solid #35435c;border-radius:15px;padding:20px;margin:16px 0}
+.my-ticket h3{margin-top:10px;font-size:21px}
+.my-ticket p{margin:7px 0}
+.ticket-status{color:#e9a2bb;font-weight:bold}
+.no-tickets{padding:25px;background:#182235;border:1px solid #35435c;border-radius:12px;color:#aab4c8}
+.ticket-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+
 #date{background:#f7efeb;color:#38232c}
 .date-header{background:#351e2b;color:white;padding:22px 6%;display:flex;justify-content:space-between}
 .date-container{max-width:760px;margin:auto;padding:40px 22px}
@@ -82,19 +94,24 @@ footer{text-align:center;border-top:1px solid #283247;padding:25px;color:#718099
 .date-option{display:block;width:100%;padding:15px;margin:9px 0;border:1px solid #e5d8d9;border-radius:10px;background:white;color:#513b44;text-align:left}
 .date-option.selected{background:#f4e4e9;border:2px solid #a65f78}
 .date-next{width:100%;padding:15px;margin-top:15px;border:0;border-radius:10px;background:#713e55;color:white;font-weight:bold}
+
 @media(max-width:650px){
  header{align-items:flex-start;flex-direction:column}
- .nav{gap:15px}
+ .nav{gap:13px}
  .nav button{font-size:13px;padding:3px 0}
  .container{padding:20px}
  .grid,.events-grid{grid-template-columns:1fr}
  .hero{padding-top:30px}
  .confirm-line{font-size:14px}
+ .my-tickets-wrap{padding:25px 18px}
+ .confirm-wrap{padding:30px 18px}
 }
 </style>
 </head>
+
 <body>
 
+<!-- მთავარი გვერდი -->
 <div id="home">
 <header>
  <div class="logo">EVENT<span>+</span></div>
@@ -103,8 +120,10 @@ footer{text-align:center;border-top:1px solid #283247;padding:25px;color:#718099
   <button onclick="goEvents()">Events</button>
   <button onclick="goSports()">Sports</button>
   <button onclick="showDate()">Date Mode</button>
+  <button onclick="showMyTickets()">ჩემი ბილეთები</button>
  </nav>
 </header>
+
 <main class="container">
  <section class="hero">
   <div class="eyebrow">DISCOVER • EXPERIENCE • ENJOY</div>
@@ -115,25 +134,32 @@ footer{text-align:center;border-top:1px solid #283247;padding:25px;color:#718099
    <button class="outline" onclick="showDate()">შექმენი შენი საღამო</button>
   </div>
  </section>
+
  <h2 class="section-title">აირჩიე შენი გამოცდილება</h2>
+
  <section class="grid">
   <article class="card">
-   <div class="emoji">🎟️</div><div class="tag">LIVE EXPERIENCES</div>
+   <div class="emoji">🎟️</div>
+   <div class="tag">LIVE EXPERIENCES</div>
    <h3>EVENTS</h3>
    <p>კონცერტები, ფესტივალები, თეატრი და სხვა ღონისძიებები.</p>
    <button class="outline" onclick="goEvents()">ღონისძიებების ნახვა →</button>
   </article>
+
   <article class="card">
-   <div class="emoji">🏆</div><div class="tag">FEEL THE GAME</div>
+   <div class="emoji">🏆</div>
+   <div class="tag">FEEL THE GAME</div>
    <h3>SPORTS</h3>
    <p>სპორტული მატჩები, გუნდები და გულშემატკივრის გამოცდილება.</p>
    <button class="outline" onclick="goSports()">სპორტის ნახვა →</button>
   </article>
  </section>
+
  <section class="event-section" id="event-catalog">
   <div class="eyebrow">FIND YOUR NEXT EXPERIENCE</div>
   <h2 class="section-title">აღმოაჩინე ღონისძიებები</h2>
   <input class="search" id="search" placeholder="🔍 მოძებნე ღონისძიება..." oninput="renderEvents()">
+
   <div class="categories">
    <button class="category active" onclick="setCategory('ყველა',this)">ყველა</button>
    <button class="category" onclick="setCategory('კონცერტი',this)">კონცერტები</button>
@@ -142,92 +168,134 @@ footer{text-align:center;border-top:1px solid #283247;padding:25px;color:#718099
    <button class="category" onclick="setCategory('თეატრი',this)">თეატრი</button>
    <button class="category" onclick="setCategory('სპორტი',this)">სპორტი</button>
   </div>
+
   <div class="events-grid" id="events-grid"></div>
   <div class="empty" id="empty">ღონისძიება ვერ მოიძებნა.</div>
  </section>
 </main>
+
 <footer>EVENT+ · GEORGIA · DEMO VERSION</footer>
 </div>
 
+<!-- ღონისძიების დეტალები -->
 <div id="event-detail">
- <header>
-  <div class="logo">EVENT<span>+</span></div>
-  <button class="back" onclick="backToEvents()">← ღონისძიებებზე დაბრუნება</button>
- </header>
- <div class="detail-hero" id="detail-emoji">🎤</div>
- <main class="detail-content">
-  <div class="tag" id="detail-category"></div>
-  <h1 id="detail-title"></h1>
-  <div class="detail-meta">
-   <span id="detail-date"></span>
-   <span id="detail-place"></span>
+<header>
+ <div class="logo">EVENT<span>+</span></div>
+ <button class="back" onclick="backToEvents()">← ღონისძიებებზე დაბრუნება</button>
+</header>
+
+<div class="detail-hero" id="detail-emoji">🎤</div>
+
+<main class="detail-content">
+ <div class="tag" id="detail-category"></div>
+ <h1 id="detail-title"></h1>
+
+ <div class="detail-meta">
+  <span id="detail-date"></span>
+  <span id="detail-place"></span>
+ </div>
+
+ <p id="detail-description"></p>
+
+ <section class="panel">
+  <h2>აირჩიე ბილეთი</h2>
+  <p>აირჩიე ბილეთის ტიპი და რაოდენობა.</p>
+
+  <div id="ticket-options"></div>
+
+  <div class="quantity-row">
+   <strong>ბილეთების რაოდენობა</strong>
+   <div class="quantity-controls">
+    <button onclick="changeQuantity(-1)">−</button>
+    <span class="quantity-number" id="quantity">1</span>
+    <button onclick="changeQuantity(1)">+</button>
+   </div>
   </div>
-  <p id="detail-description"></p>
-  <section class="panel">
-   <h2>აირჩიე ბილეთი</h2>
-   <p>აირჩიე ბილეთის ტიპი და რაოდენობა.</p>
-   <div id="ticket-options"></div>
-   <div class="quantity-row">
-    <strong>ბილეთების რაოდენობა</strong>
-    <div class="quantity-controls">
-     <button onclick="changeQuantity(-1)">−</button>
-     <span class="quantity-number" id="quantity">1</span>
-     <button onclick="changeQuantity(1)">+</button>
-    </div>
-   </div>
-   <div class="summary">
-    <h3>შეკვეთის შეჯამება</h3>
-    <div class="summary-line"><span>ბილეთი</span><span id="summary-type">არ არის არჩეული</span></div>
-    <div class="summary-line"><span>რაოდენობა</span><span id="summary-quantity">1</span></div>
-    <div class="summary-line"><span>ერთი ბილეთის ფასი</span><span id="summary-price">—</span></div>
-    <div class="summary-line summary-total"><span>სულ</span><span id="summary-total">—</span></div>
-   </div>
-   <button class="primary" style="width:100%" onclick="demoCheckout()">სატესტო შეკვეთის დადასტურება →</button>
-   <p class="notice">ეს მხოლოდ დემო პროცესია. რეალური გადახდა ან ბილეთის გაცემა არ ხდება.</p>
-  </section>
- </main>
+
+  <div class="summary">
+   <h3>შეკვეთის შეჯამება</h3>
+   <div class="summary-line"><span>ბილეთი</span><span id="summary-type">არ არის არჩეული</span></div>
+   <div class="summary-line"><span>რაოდენობა</span><span id="summary-quantity">1</span></div>
+   <div class="summary-line"><span>ერთი ბილეთის ფასი</span><span id="summary-price">—</span></div>
+   <div class="summary-line summary-total"><span>სულ</span><span id="summary-total">—</span></div>
+  </div>
+
+  <button class="primary" style="width:100%" onclick="demoCheckout()">სატესტო შეკვეთის დადასტურება →</button>
+  <p class="notice">ეს მხოლოდ დემო პროცესია. რეალური გადახდა ან ბილეთის გაცემა არ ხდება.</p>
+ </section>
+</main>
 </div>
 
-<!-- შეკვეთის დადასტურების გვერდი -->
+<!-- შეკვეთის დადასტურება -->
 <div id="order-confirmation">
- <header>
-  <div class="logo">EVENT<span>+</span></div>
-  <button class="back" onclick="backToEvents()">← ღონისძიებებზე დაბრუნება</button>
- </header>
- <main class="confirm-wrap">
-  <div class="confirm-icon">🎉</div>
-  <div class="eyebrow">ORDER SUMMARY</div>
-  <h1 style="font-size:clamp(34px,7vw,48px)">შეკვეთის შეჯამება</h1>
-  <p>თქვენი სატესტო შეკვეთა წარმატებით დამუშავდა.</p>
-  <section class="confirm-card">
-   <div class="tag">YOUR ORDER NUMBER</div>
-   <div class="confirm-number" id="order-number">EVENT-000000</div>
-   <div class="confirm-line"><span>ღონისძიება</span><strong id="order-event"></strong></div>
-   <div class="confirm-line"><span>ბილეთის ტიპი</span><strong id="order-ticket"></strong></div>
-   <div class="confirm-line"><span>რაოდენობა</span><strong id="order-quantity"></strong></div>
-   <div class="confirm-line"><span>ერთი ბილეთის ფასი</span><strong id="order-unit-price"></strong></div>
-   <div class="confirm-line confirm-total"><span>საერთო თანხა</span><strong id="order-total"></strong></div>
-   <div class="confirm-warning">
-    <strong>⚠️ სატესტო შეკვეთა</strong><br>
-    ეს არ არის რეალური შეძენა. თანხა არ ჩამოგეჭრებათ, შეკვეთა რეალურად არ ინახება და ბილეთი ან QR კოდი არ გაიცემა.
-   </div>
-   <div class="confirm-actions">
-    <button class="primary" onclick="backToEvents()">სხვა ღონისძიებების ნახვა →</button>
-    <button class="outline" onclick="showHome()">მთავარ გვერდზე დაბრუნება</button>
-   </div>
-  </section>
- </main>
+<header>
+ <div class="logo">EVENT<span>+</span></div>
+ <button class="back" onclick="backToEvents()">← ღონისძიებებზე დაბრუნება</button>
+</header>
+
+<main class="confirm-wrap">
+ <div class="confirm-icon">🎉</div>
+ <div class="eyebrow">ORDER SUMMARY</div>
+ <h1 style="font-size:clamp(34px,7vw,48px)">შეკვეთის შეჯამება</h1>
+ <p>თქვენი სატესტო შეკვეთა წარმატებით დამუშავდა.</p>
+
+ <section class="confirm-card">
+  <div class="tag">YOUR ORDER NUMBER</div>
+  <div class="confirm-number" id="order-number">EVENT-000000</div>
+
+  <div class="confirm-line"><span>ღონისძიება</span><strong id="order-event"></strong></div>
+  <div class="confirm-line"><span>ბილეთის ტიპი</span><strong id="order-ticket"></strong></div>
+  <div class="confirm-line"><span>რაოდენობა</span><strong id="order-quantity"></strong></div>
+  <div class="confirm-line"><span>ერთი ბილეთის ფასი</span><strong id="order-unit-price"></strong></div>
+  <div class="confirm-line confirm-total"><span>საერთო თანხა</span><strong id="order-total"></strong></div>
+
+  <div class="confirm-warning">
+   <strong>⚠️ სატესტო შეკვეთა</strong><br>
+   ეს არ არის რეალური შეძენა. თანხა არ ჩამოგეჭრებათ. შეკვეთა რეალურად არ ინახება სერვერზე და ბილეთი ან QR კოდი არ გაიცემა.
+  </div>
+
+  <div class="confirm-actions">
+   <button class="primary" onclick="showMyTickets()">ჩემი ბილეთები →</button>
+   <button class="outline" onclick="backToEvents()">სხვა ღონისძიებების ნახვა</button>
+   <button class="outline" onclick="showHome()">მთავარ გვერდზე დაბრუნება</button>
+  </div>
+ </section>
+</main>
 </div>
 
+<!-- ჩემი ბილეთები -->
+<div id="my-tickets">
+<header>
+ <div class="logo">EVENT<span>+</span></div>
+ <button class="back" onclick="showHome()">← მთავარ გვერდზე დაბრუნება</button>
+</header>
+
+<main class="my-tickets-wrap">
+ <div class="eyebrow">YOUR PERSONAL SPACE</div>
+ <h1 style="font-size:clamp(36px,7vw,52px)">ჩემი ბილეთები</h1>
+ <p>აქ შეგიძლია ნახო შენი სატესტო შეკვეთები.</p>
+
+ <div id="my-tickets-list"></div>
+
+ <div class="ticket-actions">
+  <button class="primary" onclick="goEvents()">ღონისძიებების ნახვა →</button>
+  <button class="outline" onclick="showHome()">მთავარი</button>
+ </div>
+</main>
+</div>
+
+<!-- DATE MODE -->
 <div id="date">
  <div class="date-header">
   <div class="logo">DATE <span class="pink">MODE</span></div>
   <button class="back" onclick="showHome()">← მთავარი</button>
  </div>
+
  <main class="date-container">
   <div class="tag">YOUR PERSONAL DATE EXPERIENCE</div>
   <h1>Let's make<br>it special.</h1>
   <p>მოდი, ერთად შევქმნათ საღამო, რომელიც დაგამახსოვრდებათ.</p>
+
   <section class="date-panel">
    <div class="notice" id="progress">QUESTION 1 / 3</div>
    <h2 id="question"></h2>
@@ -255,15 +323,19 @@ let quantity=1;
 
 function renderEvents(){
  const term=document.getElementById("search").value.toLowerCase();
+
  const filtered=events.filter(e=>
   (activeCategory==="ყველა"||e.category===activeCategory)&&
   (e.title.toLowerCase().includes(term)||e.place.toLowerCase().includes(term))
  );
+
  const grid=document.getElementById("events-grid");
  grid.innerHTML="";
+
  filtered.forEach(e=>{
   const card=document.createElement("article");
   card.className="event-card";
+
   card.innerHTML=`
    <div class="event-art">${e.emoji}</div>
    <div class="event-info">
@@ -275,9 +347,11 @@ function renderEvents(){
      <button class="small-btn">ნახვა →</button>
     </div>
    </div>`;
+
   card.querySelector("button").onclick=()=>openEvent(e.id);
   grid.appendChild(card);
  });
+
  document.getElementById("empty").style.display=filtered.length?"none":"block";
 }
 
@@ -293,13 +367,18 @@ function hideAllPages(){
  document.getElementById("date").style.display="none";
  document.getElementById("event-detail").style.display="none";
  document.getElementById("order-confirmation").style.display="none";
+ document.getElementById("my-tickets").style.display="none";
 }
 
 function goEvents(){
  showHome();
  setTimeout(()=>document.getElementById("event-catalog").scrollIntoView({behavior:"smooth"}),100);
 }
-function goSports(){alert("SPORTS განყოფილება შემდეგ ეტაპზე დაემატება.")}
+
+function goSports(){
+ alert("SPORTS განყოფილება შემდეგ ეტაპზე დაემატება.");
+}
+
 function showHome(){
  hideAllPages();
  document.getElementById("home").style.display="block";
@@ -310,8 +389,10 @@ function openEvent(id){
  currentEvent=events.find(e=>e.id===id);
  selectedTicket=null;
  quantity=1;
+
  hideAllPages();
  document.getElementById("event-detail").style.display="block";
+
  document.getElementById("detail-emoji").textContent=currentEvent.emoji;
  document.getElementById("detail-category").textContent=currentEvent.category;
  document.getElementById("detail-title").textContent=currentEvent.title;
@@ -321,18 +402,22 @@ function openEvent(id){
 
  const area=document.getElementById("ticket-options");
  area.innerHTML="";
+
  currentEvent.tickets.forEach((ticket,index)=>{
   const b=document.createElement("button");
   b.className="ticket-option";
   b.innerHTML="<span>"+ticket.name+"</span><span>"+ticket.price+" ₾</span>";
+
   b.onclick=()=>{
    selectedTicket=index;
    area.querySelectorAll("button").forEach(x=>x.classList.remove("selected"));
    b.classList.add("selected");
    updateSummary();
   };
+
   area.appendChild(b);
  });
+
  document.getElementById("quantity").textContent=quantity;
  updateSummary();
  window.scrollTo(0,0);
@@ -346,26 +431,58 @@ function changeQuantity(change){
 
 function updateSummary(){
  document.getElementById("summary-quantity").textContent=quantity;
+
  if(selectedTicket===null){
   document.getElementById("summary-type").textContent="არ არის არჩეული";
   document.getElementById("summary-price").textContent="—";
   document.getElementById("summary-total").textContent="—";
   return;
  }
+
  const ticket=currentEvent.tickets[selectedTicket];
+
  document.getElementById("summary-type").textContent=ticket.name;
  document.getElementById("summary-price").textContent=ticket.price+" ₾";
  document.getElementById("summary-total").textContent=(ticket.price*quantity)+" ₾";
 }
 
+/* შეკვეთის შენახვა და დადასტურება */
 function demoCheckout(){
  if(selectedTicket===null){
   alert("გთხოვთ, აირჩიოთ ბილეთის ტიპი.");
   return;
  }
+
  const ticket=currentEvent.tickets[selectedTicket];
  const total=ticket.price*quantity;
  const orderNumber="EVT-"+Date.now().toString().slice(-8);
+
+ const order={
+  number:orderNumber,
+  event:currentEvent.title,
+  ticket:ticket.name,
+  quantity:quantity,
+  price:ticket.price,
+  total:total,
+  date:new Date().toLocaleDateString("ka-GE")
+ };
+
+ let savedOrders=[];
+
+ try{
+  savedOrders=JSON.parse(localStorage.getItem("eventPlusOrders")||"[]");
+  if(!Array.isArray(savedOrders))savedOrders=[];
+ }catch(e){
+  savedOrders=[];
+ }
+
+ savedOrders.unshift(order);
+
+ try{
+  localStorage.setItem("eventPlusOrders",JSON.stringify(savedOrders));
+ }catch(e){
+  alert("შეკვეთის შენახვა ვერ მოხერხდა ამ ბრაუზერში.");
+ }
 
  document.getElementById("order-number").textContent=orderNumber;
  document.getElementById("order-event").textContent=currentEvent.title;
@@ -379,47 +496,119 @@ function demoCheckout(){
  window.scrollTo(0,0);
 }
 
+/* ჩემი ბილეთების გვერდი */
+function showMyTickets(){
+ hideAllPages();
+ document.getElementById("my-tickets").style.display="block";
+
+ const area=document.getElementById("my-tickets-list");
+ let orders=[];
+
+ try{
+  orders=JSON.parse(localStorage.getItem("eventPlusOrders")||"[]");
+  if(!Array.isArray(orders))orders=[];
+ }catch(e){
+  orders=[];
+ }
+
+ if(orders.length===0){
+  area.innerHTML=`
+   <div class="no-tickets">
+    <h3>🎟️ ჯერ შეკვეთა არ გაქვს</h3>
+    <p>შენი შეკვეთები აქ გამოჩნდება, როდესაც სატესტო შეკვეთას გააკეთებ.</p>
+   </div>`;
+  window.scrollTo(0,0);
+  return;
+ }
+
+ area.innerHTML=orders.map(order=>`
+  <div class="my-ticket">
+   <div class="tag">ORDER ${order.number}</div>
+   <h3>${order.event}</h3>
+   <p>🎟️ ბილეთის ტიპი: ${order.ticket}</p>
+   <p>🔢 რაოდენობა: ${order.quantity}</p>
+   <p>💰 ერთი ბილეთი: ${order.price} ₾</p>
+   <p><strong>საერთო თანხა: ${order.total} ₾</strong></p>
+   <p>📅 შეკვეთის თარიღი: ${order.date}</p>
+   <p class="ticket-status">● სატესტო შეკვეთა</p>
+   <div class="confirm-warning">
+    ეს არის დემო შეკვეთა. რეალური ბილეთი, გადახდა ან QR კოდი არ არსებობს.
+   </div>
+  </div>
+ `).join("");
+
+ window.scrollTo(0,0);
+}
+
 function backToEvents(){
  hideAllPages();
  document.getElementById("home").style.display="block";
  setTimeout(()=>document.getElementById("event-catalog").scrollIntoView({behavior:"smooth"}),100);
 }
 
+/* DATE MODE */
 const questions=[
  {q:"როგორი ვახშამი გსურთ?",d:"აირჩიეთ სამზარეულოს სტილი.",a:["იტალიური 🇮🇹","ფრანგული 🇫🇷","ქართული 🇬🇪","აზიური 🍣","ხმელთაშუაზღვისპირული 🫒","გამაკვირვე ✨"]},
  {q:"როგორი ატმოსფერო გსურთ?",d:"აირჩიეთ საღამოს განწყობა.",a:["რომანტიკული და მშვიდი 🕯️","ელეგანტური 🥂","თანამედროვე ✨","ცოცხალი და მხიარული 🎶","ტერასა და ღია სივრცე 🌆"]},
  {q:"რა ბიუჯეტი გაქვთ ორისთვის?",d:"აირჩიეთ საერთო ბიუჯეტი.",a:["50–100 ₾","100–200 ₾","200–350 ₾","350 ₾-ზე მეტი"]}
 ];
-let step=0,answers=[];
+
+let step=0;
+let answers=[];
 
 function showDate(){
  hideAllPages();
  document.getElementById("date").style.display="block";
- step=0;answers=[];renderDate();window.scrollTo(0,0);
+ step=0;
+ answers=[];
+ renderDate();
+ window.scrollTo(0,0);
 }
+
 function renderDate(){
  const q=questions[step];
+
  document.getElementById("question").textContent=q.q;
  document.getElementById("description").textContent=q.d;
  document.getElementById("progress").textContent="QUESTION "+(step+1)+" / 3";
+
  const area=document.getElementById("answers");
  area.innerHTML="";
+
  q.a.forEach(item=>{
   const b=document.createElement("button");
   b.className="date-option"+(answers[step]===item?" selected":"");
   b.textContent=item;
-  b.onclick=()=>{answers[step]=item;renderDate()};
+  b.onclick=()=>{
+   answers[step]=item;
+   renderDate();
+  };
   area.appendChild(b);
  });
+
  document.getElementById("next").textContent=step===2?"ჩემი არჩევანის ნახვა →":"გაგრძელება →";
  document.getElementById("next").onclick=nextQuestion;
 }
+
 function nextQuestion(){
- if(!answers[step]){alert("გთხოვთ, აირჩიოთ პასუხი.");return}
- if(step<2){step++;renderDate();return}
+ if(!answers[step]){
+  alert("გთხოვთ, აირჩიოთ პასუხი.");
+  return;
+ }
+
+ if(step<2){
+  step++;
+  renderDate();
+  return;
+ }
+
  document.getElementById("question").textContent="თქვენი საღამოს არჩევანი ❤️";
  document.getElementById("description").textContent="თქვენი პასუხების შეჯამება:";
- document.getElementById("answers").innerHTML=answers.map((a,i)=>'<div class="date-option">'+questions[i].q+'<br><b>'+a+'</b></div>').join("")+'<p class="notice">ეს დემო ვერსიაა. რეალური ადგილები და დაჯავშნა ჯერ არ არის ჩართული.</p>';
+
+ document.getElementById("answers").innerHTML=
+  answers.map((a,i)=>'<div class="date-option">'+questions[i].q+'<br><b>'+a+'</b></div>').join("")+
+  '<p class="notice">ეს დემო ვერსიაა. რეალური ადგილები და დაჯავშნა ჯერ არ არის ჩართული.</p>';
+
  document.getElementById("progress").textContent="YOUR DATE PLAN";
  document.getElementById("next").textContent="თავიდან დაწყება";
  document.getElementById("next").onclick=showDate;
@@ -428,5 +617,6 @@ function nextQuestion(){
 renderEvents();
 renderDate();
 </script>
+
 </body>
 </html>
